@@ -85,18 +85,54 @@
         </div>
         <div class="crane-animation">
             <div class="crane-scene">
-                <!-- Sky -->
-                <div class="sky"></div>
-                <!-- Ground -->
-                <div class="ground-area"></div>
-                <!-- Rail tracks -->
+                <!-- Sky with clouds -->
+                <div class="sky">
+                    <div class="cloud cloud-1"></div>
+                    <div class="cloud cloud-2"></div>
+                    <div class="cloud cloud-3"></div>
+                    <div class="birds">
+                        <div class="bird bird-1"></div>
+                        <div class="bird bird-2"></div>
+                        <div class="bird bird-3"></div>
+                    </div>
+                </div>
+
+                <!-- Ground with road -->
+                <div class="ground-area">
+                    <div class="road"></div>
+                    <div class="road-markings"></div>
+                    <div class="grass-strip"></div>
+                </div>
+
+                <!-- Fence -->
+                <div class="fence"></div>
+
+                <!-- Rail tracks (double) -->
                 <div class="rail-tracks">
                     <div class="rail"></div>
                     <div class="rail"></div>
                     <div class="sleepers"></div>
                 </div>
-                <!-- Train with containers -->
+
+                <!-- Signal light -->
+                <div class="signal-light">
+                    <div class="signal-pole"></div>
+                    <div class="signal-head">
+                        <div class="signal-red"></div>
+                        <div class="signal-green"></div>
+                    </div>
+                </div>
+
+                <!-- Locomotive + Train with containers -->
                 <div class="train-on-track">
+                    <div class="locomotive">
+                        <div class="loco-body"></div>
+                        <div class="loco-cab"></div>
+                        <div class="loco-stripe"></div>
+                        <div class="loco-smoke">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
                     <div class="flatcar fc-1">
                         <div class="fc-container fc-red"></div>
                     </div>
@@ -106,22 +142,41 @@
                     <div class="flatcar fc-3">
                         <div class="fc-container fc-green"></div>
                     </div>
+                    <div class="flatcar fc-4">
+                        <div class="fc-container fc-copper"></div>
+                    </div>
+                    <div class="flatcar fc-5">
+                        <div class="fc-container fc-gray"></div>
+                    </div>
                 </div>
-                <!-- Gantry Crane -->
-                <div class="gantry">
+
+                <!-- Gantry Crane 1 (main) -->
+                <div class="gantry gantry-main">
                     <div class="gantry-leg gantry-leg-l"></div>
                     <div class="gantry-leg gantry-leg-r"></div>
-                    <div class="gantry-beam"></div>
+                    <div class="gantry-beam">
+                        <div class="gantry-cabin"></div>
+                    </div>
                     <div class="gantry-trolley">
                         <div class="gantry-cable"></div>
                         <div class="gantry-spreader"></div>
                         <div class="gantry-lifting-container"></div>
                     </div>
+                    <div class="gantry-warning-light"></div>
                 </div>
-                <!-- Truck -->
+
+                <!-- Gantry Crane 2 (background, smaller) -->
+                <div class="gantry gantry-bg">
+                    <div class="gantry-leg gantry-leg-l"></div>
+                    <div class="gantry-leg gantry-leg-r"></div>
+                    <div class="gantry-beam"></div>
+                </div>
+
+                <!-- Truck (arrives + departs) -->
                 <div class="truck">
                     <div class="truck-cab">
                         <div class="truck-window"></div>
+                        <div class="truck-mirror"></div>
                     </div>
                     <div class="truck-chassis"></div>
                     <div class="truck-wheel tw-1"></div>
@@ -129,16 +184,45 @@
                     <div class="truck-wheel tw-3"></div>
                     <div class="truck-trailer"></div>
                     <div class="truck-container"></div>
+                    <div class="truck-lights"></div>
                 </div>
-                <!-- Container stacks -->
+
+                <!-- Second truck waiting -->
+                <div class="truck truck-waiting">
+                    <div class="truck-cab">
+                        <div class="truck-window"></div>
+                    </div>
+                    <div class="truck-chassis truck-chassis-sm"></div>
+                    <div class="truck-wheel tw-1"></div>
+                    <div class="truck-wheel tw-2"></div>
+                    <div class="truck-trailer truck-trailer-sm"></div>
+                </div>
+
+                <!-- Container stacks (more) -->
                 <div class="container-stack stack-1">
                     <div class="stacked sc-1"></div>
                     <div class="stacked sc-2"></div>
                     <div class="stacked sc-3"></div>
+                    <div class="stacked sc-6"></div>
                 </div>
                 <div class="container-stack stack-2">
                     <div class="stacked sc-4"></div>
                     <div class="stacked sc-5"></div>
+                </div>
+                <div class="container-stack stack-3">
+                    <div class="stacked sc-7"></div>
+                    <div class="stacked sc-8"></div>
+                    <div class="stacked sc-9"></div>
+                </div>
+
+                <!-- Forklift -->
+                <div class="forklift">
+                    <div class="fl-body"></div>
+                    <div class="fl-mast"></div>
+                    <div class="fl-fork"></div>
+                    <div class="fl-wheel fl-w1"></div>
+                    <div class="fl-wheel fl-w2"></div>
+                    <div class="fl-light"></div>
                 </div>
             </div>
         </div>
