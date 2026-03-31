@@ -104,405 +104,322 @@ button.btn { appearance: none; -webkit-appearance: none; }
 }
 .hero-bg {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, #0a1628 0%, #0f2b46 25%, #1a4a6e 50%, #2a6a8e 75%, #1a4a6e 100%);
+    background: linear-gradient(180deg, #6ba3c7 0%, #8a8a80 50%, #7a7a74 100%);
 }
 .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(10,22,40,.75) 0%, rgba(15,43,70,.5) 40%, rgba(15,43,70,.3) 100%);
+    background: linear-gradient(135deg, rgba(10,22,40,.82) 0%, rgba(15,43,70,.6) 35%, rgba(15,43,70,.35) 100%);
 }
 
 /* ===== HERO ANIMATED SCENE ===== */
 .hero-scene {
     position: absolute; inset: 0; overflow: hidden;
+    perspective: 800px;
 }
 
-/* Water */
-.hs-water {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
-    background: linear-gradient(180deg, #0e3a5c 0%, #0a2a44 40%, #071e30 100%);
+/* Sky gradient */
+.hs-sky {
+    position: absolute; top: 0; left: 0; right: 0; height: 40%;
+    background: linear-gradient(180deg, #6ba3c7 0%, #8cbdd8 40%, #a8cfe0 70%, #c8dfe8 100%);
+    overflow: hidden;
 }
-.hs-wave {
-    position: absolute; left: -100%; width: 300%; height: 30px;
-    background: repeating-linear-gradient(90deg,
-        transparent, transparent 80px,
-        rgba(100,180,220,.06) 80px, rgba(100,180,220,.06) 160px
-    );
-    border-radius: 50%;
+.hs-cloud {
+    position: absolute; background: rgba(255,255,255,.7);
+    border-radius: 40px; height: 20px;
 }
-.hs-wave-1 { top: 0; animation: waveDrift 7s linear infinite; }
-.hs-wave-2 { top: 30px; animation: waveDrift 10s linear infinite; opacity: .7; }
-.hs-wave-3 { top: 60px; animation: waveDrift 13s linear infinite; opacity: .4; }
-@keyframes waveDrift {
+.hs-cloud::before, .hs-cloud::after {
+    content: ''; position: absolute; background: rgba(255,255,255,.7); border-radius: 50%;
+}
+.hs-cloud::before { width: 30px; height: 30px; top: -16px; left: 16px; }
+.hs-cloud::after { width: 22px; height: 22px; top: -10px; right: 12px; }
+.hs-cloud-1 { width: 80px; top: 30px; left: -100px; animation: hsCloudMove 30s linear infinite; }
+.hs-cloud-2 { width: 60px; top: 60px; left: -80px; animation: hsCloudMove 38s linear infinite 10s; opacity: .5; }
+.hs-cloud-3 { width: 70px; top: 20px; left: -90px; animation: hsCloudMove 25s linear infinite 18s; opacity: .6; }
+@keyframes hsCloudMove {
     0% { transform: translateX(0); }
-    100% { transform: translateX(33.33%); }
+    100% { transform: translateX(calc(100vw + 200px)); }
 }
 
-/* Ship — large, close */
-.hs-ship {
-    position: absolute; bottom: 30%; left: -2%;
-    animation: shipBob 6s ease-in-out infinite;
+/* Trees background */
+.hs-trees {
+    position: absolute; top: 30%; left: 0; right: 0; height: 60px;
+    display: flex; gap: 0; z-index: 1;
 }
-@keyframes shipBob {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-6px) rotate(.4deg); }
-}
-.hs-hull {
-    position: absolute; bottom: 0; left: 0; width: 520px; height: 90px;
-    background: linear-gradient(180deg, #1a1a1a, #0e0e0e);
-    border-radius: 0 0 12px 60px;
-    clip-path: polygon(0 0, 100% 0, 96% 100%, 6% 100%);
-}
-.hs-hull::after {
-    content: ''; position: absolute; bottom: 0; left: 8%; right: 4%; height: 14px;
-    background: #c44536;
-}
-.hs-hull::before {
-    content: ''; position: absolute; top: 20px; left: 12%; right: 8%;
-    height: 2px; background: rgba(255,255,255,.06);
-}
-.hs-deck {
-    position: absolute; bottom: 90px; left: 16px; width: 488px; height: 22px;
-    background: #2a2a2a; border-radius: 3px;
-    border-top: 2px solid #3a3a3a;
-}
-.hs-bridge {
-    position: absolute; bottom: 112px; left: 380px; width: 90px; height: 100px;
-    background: linear-gradient(180deg, #3a3a3a, #222);
-    border-radius: 4px 4px 0 0;
-}
-.hs-bridge::after {
-    content: ''; position: absolute; bottom: 0; left: -8px; right: -8px; height: 6px;
-    background: #2a2a2a;
-}
-.hs-bridge-window {
-    position: absolute; bottom: 178px; left: 388px; width: 74px; height: 26px;
-    background: rgba(100,200,255,.2); border-radius: 3px;
-    box-shadow: 0 0 20px rgba(100,200,255,.1);
-}
-.hs-funnel {
-    position: absolute; bottom: 212px; left: 410px; width: 30px; height: 48px;
-    background: linear-gradient(180deg, #c44536, #a33a2e);
-    border-radius: 3px 3px 0 0;
-}
-.hs-funnel::after {
-    content: ''; position: absolute; top: 10px; left: 5px; right: 5px; height: 5px;
-    background: var(--white);
-}
-.hs-funnel-smoke {
-    position: absolute; bottom: 260px; left: 418px;
-}
-.hs-funnel-smoke span {
-    position: absolute; width: 16px; height: 16px;
-    background: rgba(150,150,150,.2); border-radius: 50%;
-    animation: heroSmoke 3.5s ease-out infinite;
-}
-.hs-funnel-smoke span:nth-child(2) { animation-delay: 1.2s; left: 6px; }
-.hs-funnel-smoke span:nth-child(3) { animation-delay: 2.4s; left: -4px; }
-@keyframes heroSmoke {
-    0% { transform: translateY(0) scale(1); opacity: .35; }
-    100% { transform: translateY(-80px) translateX(20px) scale(4); opacity: 0; }
+.hs-tree {
+    flex: 1; height: 100%;
+    background:
+        radial-gradient(ellipse 26px 28px at 50% 30%, #3a7a3a 0%, #2a6a2a 60%, transparent 61%),
+        radial-gradient(ellipse 20px 22px at 35% 40%, #4a8a3a 0%, #3a7a2a 60%, transparent 61%),
+        radial-gradient(ellipse 22px 24px at 65% 38%, #3a8030 0%, #2a7020 60%, transparent 61%),
+        linear-gradient(180deg, transparent 58%, #5a7a4a 58%, #5a7a4a 100%);
 }
 
-/* Ship containers — bigger */
-.hs-ship-containers { position: absolute; bottom: 112px; left: 30px; }
-.hs-sc {
-    position: absolute; width: 68px; height: 38px; border-radius: 3px;
-    box-shadow: inset 0 -2px 0 rgba(0,0,0,.2);
+/* Yard surface */
+.hs-yard {
+    position: absolute; top: 35%; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, #8a8a80 0%, #929288 20%, #8a8a80 100%);
 }
-.hs-sc::after {
-    content: ''; position: absolute; top: 50%; left: 12%; right: 12%;
-    height: 2px; background: rgba(255,255,255,.15);
+.hs-yard::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, transparent, transparent 120px, rgba(0,0,0,.03) 120px, rgba(0,0,0,.03) 122px);
 }
-.hs-sc::before {
-    content: ''; position: absolute; left: 5px; top: 5px; bottom: 5px; width: 2px;
-    background: rgba(255,255,255,.1);
-}
-/* Row 1 */
-.hs-sc-r1-1 { bottom: 0; left: 0; background: linear-gradient(135deg, #c44536, #a33a2e); }
-.hs-sc-r1-2 { bottom: 0; left: 72px; background: linear-gradient(135deg, #2d6ea0, #1f5580); }
-.hs-sc-r1-3 { bottom: 0; left: 144px; background: linear-gradient(135deg, #3a8c5c, #2d7048); }
-.hs-sc-r1-4 { bottom: 0; left: 216px; background: linear-gradient(135deg, var(--copper), var(--copper-dark)); }
-.hs-sc-r1-5 { bottom: 0; left: 288px; background: linear-gradient(135deg, #7a8494, #5a6474); }
-/* Row 2 */
-.hs-sc-r2-1 { bottom: 40px; left: 4px; background: linear-gradient(135deg, #7a8494, #5a6474); }
-.hs-sc-r2-2 { bottom: 40px; left: 76px; background: linear-gradient(135deg, #c2956b, #a67b52); }
-.hs-sc-r2-3 { bottom: 40px; left: 148px; background: linear-gradient(135deg, #c44536, #a33a2e); }
-.hs-sc-r2-4 { bottom: 40px; left: 220px; background: linear-gradient(135deg, #2d6ea0, #1f5580); }
-/* Row 3 */
-.hs-sc-r3-1 { bottom: 80px; left: 10px; background: linear-gradient(135deg, #2d6ea0, #1f5580); }
-.hs-sc-r3-2 { bottom: 80px; left: 82px; background: linear-gradient(135deg, #3a8c5c, #2d7048); }
-.hs-sc-r3-3 { bottom: 80px; left: 154px; background: linear-gradient(135deg, var(--copper), var(--copper-dark)); }
-/* Row 4 */
-.hs-sc-r4-1 { bottom: 120px; left: 18px; background: linear-gradient(135deg, #c44536, #a33a2e); }
-.hs-sc-r4-2 { bottom: 120px; left: 90px; background: linear-gradient(135deg, #7a8494, #5a6474); }
 
-/* Port crane — tall, dominant */
-.hs-crane {
-    position: absolute; bottom: 30%; right: 16%; z-index: 2;
+/* Rail tracks - horizontal lines with perspective feel */
+.hs-track {
+    position: absolute; left: 0; right: 0; height: 14px;
+    background:
+        linear-gradient(180deg,
+            transparent 0px, transparent 2px,
+            #aaa 2px, #aaa 4px,
+            transparent 4px, transparent 10px,
+            #aaa 10px, #aaa 12px,
+            transparent 12px
+        );
+    z-index: 2;
 }
-.hs-crane-base {
-    position: absolute; bottom: 0; left: -30px; width: 100px; height: 30px;
-    background: linear-gradient(180deg, #e8b830, #c89820);
-    border-radius: 3px;
+.hs-track::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg,
+        rgba(120,100,70,.4) 0, rgba(120,100,70,.4) 6px,
+        transparent 6px, transparent 18px
+    );
 }
-.hs-crane-base::after {
-    content: ''; position: absolute; bottom: 0; left: 10px; right: 10px; height: 8px;
-    background: #b88818; border-radius: 0 0 2px 2px;
+.hs-track-1 { top: 38%; }
+.hs-track-2 { top: 45%; }
+.hs-track-3 { top: 52%; }
+.hs-track-4 { top: 59%; }
+.hs-track-5 { top: 66%; }
+
+/* Train wagons on tracks */
+.hs-train {
+    position: absolute; left: 0; display: flex; gap: 4px; z-index: 3;
 }
-.hs-crane-tower {
-    position: absolute; bottom: 30px; left: 4px; width: 28px; height: 480px;
-    background: linear-gradient(90deg, #f0c040, #e0b030, #f0c040);
+.hs-train-1 { top: 36%; left: 5%; }
+.hs-train-2 { top: 43%; left: 12%; }
+.hs-train-3 { top: 57%; left: 2%; }
+.hs-wagon {
+    width: 70px; height: 10px; background: #555; border-radius: 1px;
+    position: relative;
 }
-.hs-crane-tower::before {
-    content: ''; position: absolute; top: 0; left: -5px; right: -5px; bottom: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0,0,0,.06) 20px, rgba(0,0,0,.06) 22px);
-}
-.hs-crane-tower::after {
-    content: ''; position: absolute; top: 0; left: 50%; width: 2px; bottom: 0;
-    background: rgba(0,0,0,.06);
-}
-.hs-crane-boom {
-    position: absolute; bottom: 500px; left: -200px; width: 440px; height: 22px;
-    background: linear-gradient(90deg, #f0c040, #e8b830);
-    border-radius: 3px;
-    transform-origin: 80% center;
-    transform: rotate(-2deg);
-    box-shadow: 0 3px 12px rgba(0,0,0,.2);
-}
-.hs-crane-boom::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(0,0,0,.04) 30px, rgba(0,0,0,.04) 32px);
-}
-.hs-crane-cabin {
-    position: absolute; bottom: 450px; left: -16px; width: 60px; height: 48px;
-    background: linear-gradient(180deg, #e0b030, #c89828);
-    border-radius: 3px;
-    border: 2px solid rgba(0,0,0,.1);
-}
-.hs-crane-cabin::before {
-    content: ''; position: absolute; top: 6px; left: 6px; width: 34px; height: 16px;
-    background: rgba(100,200,255,.25); border-radius: 2px;
-    box-shadow: 0 0 8px rgba(100,200,255,.1);
-}
-.hs-crane-cabin::after {
-    content: ''; position: absolute; bottom: 6px; left: 8px; width: 10px; height: 10px;
-    background: rgba(0,0,0,.1); border-radius: 50%;
-}
-.hs-crane-trolley {
-    position: absolute; bottom: 240px; left: -140px;
-    animation: hsTrolley 14s ease-in-out infinite;
-}
-@keyframes hsTrolley {
-    0%, 6% { left: -170px; }
-    30%, 45% { left: 40px; }
-    80%, 100% { left: -170px; }
-}
-.hs-crane-cable {
-    position: absolute; top: 0; left: 22px; width: 3px; height: 220px;
-    background: rgba(255,255,255,.45);
-    animation: hsCable 14s ease-in-out infinite;
-}
-@keyframes hsCable {
-    0%, 6% { height: 50px; }
-    16% { height: 220px; }
-    25%, 30% { height: 220px; }
-    40% { height: 50px; }
-    60% { height: 220px; }
-    70%, 80% { height: 220px; }
-    100% { height: 50px; }
-}
-.hs-crane-spreader {
-    position: absolute; top: 220px; left: 4px; width: 48px; height: 8px;
-    background: #ddd; border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.2);
-    animation: hsSpreader 14s ease-in-out infinite;
-}
-@keyframes hsSpreader {
-    0%, 6% { top: 50px; }
-    16% { top: 220px; }
-    25%, 30% { top: 220px; }
-    40% { top: 50px; }
-    60% { top: 220px; }
-    70%, 80% { top: 220px; }
-    100% { top: 50px; }
-}
-.hs-crane-container {
-    position: absolute; top: 228px; left: 6px; width: 44px; height: 30px;
-    background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+.hs-wc {
+    position: absolute; top: -28px; left: 2px; right: 2px; height: 28px;
     border-radius: 2px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.3);
-    animation: hsLift 14s ease-in-out infinite;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
 }
-.hs-crane-container::after {
-    content: ''; position: absolute; top: 50%; left: 12%; right: 12%;
-    height: 2px; background: rgba(255,255,255,.25);
+.hs-wc::after {
+    content: ''; position: absolute; top: 50%; left: 10%; right: 10%;
+    height: 1px; background: rgba(255,255,255,.2);
 }
-@keyframes hsLift {
-    0%, 6% { top: 58px; opacity: 1; }
-    16% { top: 228px; opacity: 1; }
-    25%, 30% { top: 228px; opacity: 1; }
-    40% { top: 58px; opacity: 1; }
-    60% { top: 228px; opacity: 1; }
-    75% { opacity: 1; }
-    80%, 100% { top: 58px; opacity: 0; }
+
+/* Container stack zone (left side) */
+.hs-stack-zone {
+    position: absolute; top: 36%; left: 60%; z-index: 4;
 }
-.hs-crane-light {
-    position: absolute; bottom: 514px; left: 8px; width: 14px; height: 14px;
+.hs-row {
+    display: flex; gap: 4px; margin-bottom: 4px;
+}
+.hs-row span {
+    display: block; width: 44px; height: 22px; border-radius: 2px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.25);
+    position: relative;
+}
+.hs-row span::after {
+    content: ''; position: absolute; top: 50%; left: 10%; right: 10%;
+    height: 1px; background: rgba(255,255,255,.18);
+}
+.hs-row-2 { margin-left: 8px; }
+.hs-row-3 { margin-left: 16px; }
+.hs-row-4 { margin-left: 24px; }
+
+/* Gantry crane - large, spanning across tracks */
+.hs-gantry {
+    position: absolute; top: 28%; left: 30%; z-index: 5;
+}
+.hs-gantry-leg {
+    position: absolute; top: 0; width: 12px; height: 280px;
+    background: linear-gradient(90deg, #b0b0a8, #c8c8c0, #b0b0a8);
+    border-radius: 2px;
+}
+.hs-gantry-leg::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(0,0,0,.06) 18px, rgba(0,0,0,.06) 20px);
+}
+/* Diagonal bracing on legs */
+.hs-gantry-leg::after {
+    content: ''; position: absolute; top: 20px; left: 2px; width: 8px; height: 100%;
+    background: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(0,0,0,.04) 14px, rgba(0,0,0,.04) 16px);
+}
+.hs-gl-l { left: 0; }
+.hs-gl-r { left: 340px; }
+.hs-gantry-beam {
+    position: absolute; top: -10px; left: -30px; width: 420px; height: 18px;
+    background: linear-gradient(180deg, #c0c0b8, #b0b0a8);
+    border-radius: 3px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+/* Truss structure on beam */
+.hs-gantry-beam::before {
+    content: ''; position: absolute; top: -20px; left: 20px; right: 20px; height: 20px;
+    background:
+        repeating-linear-gradient(60deg, transparent, transparent 20px, rgba(180,180,170,.6) 20px, rgba(180,180,170,.6) 22px),
+        repeating-linear-gradient(-60deg, transparent, transparent 20px, rgba(180,180,170,.6) 20px, rgba(180,180,170,.6) 22px);
+}
+.hs-gantry-beam::after {
+    content: ''; position: absolute; top: -22px; left: 10px; right: 10px; height: 4px;
+    background: #c0c0b8; border-radius: 2px;
+}
+/* Trolley moving along beam */
+.hs-gantry-trolley {
+    position: absolute; top: 10px; left: 20px;
+    animation: hsGTrolley 14s ease-in-out infinite;
+}
+@keyframes hsGTrolley {
+    0%, 8% { left: 20px; }
+    35%, 48% { left: 260px; }
+    82%, 100% { left: 20px; }
+}
+.hs-g-cable {
+    position: absolute; top: 0; left: 10px; width: 2px; height: 100px;
+    background: rgba(0,0,0,.3);
+    animation: hsGCable 14s ease-in-out infinite;
+}
+@keyframes hsGCable {
+    0%, 8% { height: 40px; }
+    18% { height: 160px; }
+    28%, 35% { height: 160px; }
+    45% { height: 40px; }
+    62% { height: 160px; }
+    72%, 82% { height: 160px; }
+    100% { height: 40px; }
+}
+.hs-g-spreader {
+    position: absolute; top: 100px; left: -2px; width: 28px; height: 5px;
+    background: #f0c040; border-radius: 1px;
+    animation: hsGSpreader 14s ease-in-out infinite;
+}
+@keyframes hsGSpreader {
+    0%, 8% { top: 40px; }
+    18% { top: 160px; }
+    28%, 35% { top: 160px; }
+    45% { top: 40px; }
+    62% { top: 160px; }
+    72%, 82% { top: 160px; }
+    100% { top: 40px; }
+}
+.hs-g-container {
+    position: absolute; top: 105px; left: 0; width: 24px; height: 16px;
+    background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+    border-radius: 1px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.3);
+    animation: hsGLift 14s ease-in-out infinite;
+}
+.hs-g-container::after {
+    content: ''; position: absolute; top: 50%; left: 10%; right: 10%;
+    height: 1px; background: rgba(255,255,255,.25);
+}
+@keyframes hsGLift {
+    0%, 8% { top: 45px; opacity: 1; }
+    18% { top: 165px; opacity: 1; }
+    28%, 35% { top: 165px; opacity: 1; }
+    45% { top: 45px; opacity: 1; }
+    62% { top: 165px; opacity: 1; }
+    76% { opacity: 1; }
+    82%, 100% { top: 45px; opacity: 0; }
+}
+.hs-g-light {
+    position: absolute; top: -16px; left: 170px; width: 10px; height: 10px;
     background: #f5a020; border-radius: 50%;
-    box-shadow: 0 0 12px rgba(245,160,32,.5);
+    box-shadow: 0 0 10px rgba(245,160,32,.5);
     animation: warningBlink 1.2s ease-in-out infinite;
 }
 
-/* Dock — wider */
-.hs-dock {
-    position: absolute; bottom: 14%; right: 0; width: 58%; height: 20%;
-    background: linear-gradient(180deg, #4a5568, #3d4555);
-    border-left: 6px solid #5a6474;
-}
-.hs-dock::after {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
-    background: linear-gradient(90deg, #7a8a9a, #6b7b8a);
-}
-.hs-dock::before {
-    content: ''; position: absolute; top: 6px; left: 0; right: 0; bottom: 0;
-    background: repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(0,0,0,.03) 60px, rgba(0,0,0,.03) 62px);
+/* Second gantry - background, smaller */
+.hs-gantry-2 {
+    top: 32%; left: 8%; z-index: 1;
+    transform: scale(.55);
+    opacity: .3;
+    transform-origin: bottom left;
 }
 
-/* Road */
-.hs-road-area {
-    position: absolute; bottom: 0; right: 0; width: 58%; height: 14%;
-    background: #2a2e36;
+/* Road at bottom */
+.hs-road {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 18%;
+    background: #4a4a48;
+    z-index: 6;
 }
-.hs-road-marks {
-    position: absolute; top: 50%; left: 0; right: 0; height: 4px;
+.hs-road::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: #6a6a68;
+}
+.hs-road-line {
+    position: absolute; top: 50%; left: 0; right: 0; height: 3px;
     background: repeating-linear-gradient(90deg, #e8c840 0, #e8c840 40px, transparent 40px, transparent 80px);
     transform: translateY(-50%);
 }
 
-/* Truck — big */
+/* Trucks - driving right to left and left to right */
 .hs-truck {
-    position: absolute; bottom: 14%; right: 10%; z-index: 3;
+    position: absolute; z-index: 7; bottom: 0; height: 18%;
 }
-.hs-truck-cab {
-    position: absolute; bottom: 30px; right: 0; width: 60px; height: 60px;
-    background: var(--white); border-radius: 6px 10px 6px 6px;
-    border: 3px solid rgba(255,255,255,.3);
+.hs-t-cab {
+    position: absolute; bottom: 30%; right: 0; width: 30px; height: 28px;
+    background: #e8e8e0; border-radius: 3px 5px 2px 2px;
+    border: 1px solid rgba(0,0,0,.1);
 }
-.hs-truck-cab::after {
-    content: ''; position: absolute; bottom: 8px; left: 8px; width: 6px; height: 6px;
-    background: #f5e060; border-radius: 50%;
+.hs-t-cab::before {
+    content: ''; position: absolute; top: 3px; right: 3px; width: 12px; height: 8px;
+    background: rgba(100,180,220,.4); border-radius: 1px 3px 1px 1px;
 }
-.hs-truck-window {
-    position: absolute; bottom: 74px; right: 8px; width: 30px; height: 20px;
-    background: rgba(100,200,255,.3); border-radius: 3px 8px 3px 3px;
-    box-shadow: inset 0 0 8px rgba(100,200,255,.1);
+.hs-t-cab::after {
+    content: ''; position: absolute; bottom: 0; left: 3px; right: 3px; height: 4px;
+    background: #333; border-radius: 0 0 2px 2px;
 }
-.hs-truck-chassis {
-    position: absolute; bottom: 18px; right: 0; width: 240px; height: 14px;
-    background: #3d4555; border-radius: 3px;
+.hs-t-trailer {
+    position: absolute; bottom: 34%; right: 32px; width: 100px; height: 6px;
+    background: #666; border-radius: 1px;
 }
-.hs-truck-w1, .hs-truck-w2, .hs-truck-w3 {
-    position: absolute; bottom: 4px; width: 26px; height: 26px;
-    background: radial-gradient(circle at 50% 50%, #555 30%, #1a1a1a 30%);
-    border-radius: 50%; border: 3px solid #444;
+.hs-t-cont {
+    position: absolute; bottom: 40%; right: 34px; width: 96px; height: 30px;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.25);
 }
-.hs-truck-w1 { right: 8px; }
-.hs-truck-w2 { right: 42px; }
-.hs-truck-w3 { right: 180px; }
-.hs-truck-trailer {
-    position: absolute; bottom: 32px; right: 62px; width: 170px; height: 10px;
-    background: #666; border-radius: 2px;
-}
-.hs-truck-container {
-    position: absolute; bottom: 42px; right: 66px; width: 162px; height: 56px;
-    background: linear-gradient(135deg, var(--copper), var(--copper-dark));
-    border-radius: 3px; opacity: 0;
-    box-shadow: 0 3px 10px rgba(0,0,0,.3);
-    animation: hsTruckLoad 14s ease-in-out infinite;
-}
-.hs-truck-container::after {
-    content: ''; position: absolute; top: 50%; left: 10%; right: 10%;
-    height: 2px; background: rgba(255,255,255,.2);
-}
-.hs-truck-container::before {
-    content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px;
-    background: rgba(255,255,255,.12);
-}
-@keyframes hsTruckLoad {
-    0%, 75% { opacity: 0; }
-    82%, 100% { opacity: 1; }
+.hs-t-cont::after {
+    content: ''; position: absolute; top: 50%; left: 8%; right: 8%;
+    height: 1px; background: rgba(255,255,255,.2);
 }
 
-/* Rail tracks on dock */
-.hs-rails {
-    position: absolute; right: 0; width: 58%; height: 10px; z-index: 1;
+/* Truck 1 - drives right */
+.hs-truck-1 {
+    animation: hsTruckR 16s linear infinite;
 }
-.hs-rails-1 { bottom: 30%; }
-.hs-rails-2 { bottom: 25%; }
-.hs-rail {
-    position: absolute; left: 0; right: 0; height: 3px;
-    background: rgba(180,180,180,.25); border-radius: 1px;
-    box-shadow: 0 1px 0 rgba(0,0,0,.1);
-}
-.hs-rail:first-child { top: 0; }
-.hs-rail:nth-child(2) { top: 7px; }
-.hs-sleepers {
-    position: absolute; top: -1px; left: 0; right: 0; height: 10px;
-    background: repeating-linear-gradient(90deg,
-        rgba(100,80,60,.25) 0, rgba(100,80,60,.25) 5px,
-        transparent 5px, transparent 18px
-    );
+@keyframes hsTruckR {
+    0% { left: -180px; }
+    100% { left: 110%; }
 }
 
-/* Container stacks on dock — bigger */
-.hs-stacks { position: absolute; z-index: 2; }
-.hs-stacks-1 { bottom: 34%; right: 4%; }
-.hs-stacks-2 { bottom: 34%; right: 32%; }
-.hs-stacks-3 { bottom: 34%; right: 46%; }
-.hs-stk {
-    position: absolute; width: 50px; height: 30px; border-radius: 3px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.3);
+/* Truck 2 - drives left (flipped) */
+.hs-truck-2 {
+    transform: scaleX(-1);
+    bottom: 1%;
+    animation: hsTruckL 20s linear infinite 4s;
 }
-.hs-stk::after {
-    content: ''; position: absolute; top: 50%; left: 12%; right: 12%;
-    height: 2px; background: rgba(255,255,255,.12);
+@keyframes hsTruckL {
+    0% { right: -180px; left: auto; }
+    100% { right: 110%; left: auto; }
 }
-/* Stack 1 */
-.hs-stk-1 { bottom: 0; left: 0; background: linear-gradient(135deg, #c44536, #a33a2e); }
-.hs-stk-2 { bottom: 0; left: 54px; background: linear-gradient(135deg, #2d6ea0, #1f5580); }
-.hs-stk-3 { bottom: 32px; left: 8px; background: linear-gradient(135deg, #3a8c5c, #2d7048); }
-.hs-stk-4 { bottom: 0; left: 112px; background: linear-gradient(135deg, #7a8494, #5a6474); }
-.hs-stk-5 { bottom: 32px; left: 60px; background: linear-gradient(135deg, var(--copper), var(--copper-dark)); }
-.hs-stk-6 { bottom: 64px; left: 24px; background: linear-gradient(135deg, #c44536, #a33a2e); }
-/* Stack 2 */
-.hs-stk-7 { bottom: 0; left: 0; background: linear-gradient(135deg, var(--copper), var(--copper-dark)); }
-.hs-stk-8 { bottom: 0; left: 54px; background: linear-gradient(135deg, #c44536, #a33a2e); }
-.hs-stk-9 { bottom: 32px; left: 6px; background: linear-gradient(135deg, #2d6ea0, #1f5580); }
-.hs-stk-10 { bottom: 32px; left: 58px; background: linear-gradient(135deg, #3a8c5c, #2d7048); }
-.hs-stk-11 { bottom: 64px; left: 18px; background: linear-gradient(135deg, #7a8494, #5a6474); }
-/* Stack 3 */
-.hs-stk-12 { bottom: 0; left: 0; background: linear-gradient(135deg, #3a8c5c, #2d7048); }
-.hs-stk-13 { bottom: 0; left: 54px; background: linear-gradient(135deg, var(--copper), var(--copper-dark)); }
-.hs-stk-14 { bottom: 32px; left: 8px; background: linear-gradient(135deg, #c44536, #a33a2e); }
-.hs-stk-15 { bottom: 32px; left: 58px; background: linear-gradient(135deg, #2d6ea0, #1f5580); }
+.hs-truck-2 { left: auto; right: -180px; animation: hsTruckL2 20s linear infinite 4s; }
+@keyframes hsTruckL2 {
+    0% { transform: scaleX(-1) translateX(0); }
+    100% { transform: scaleX(-1) translateX(calc(100vw + 360px)); }
+}
 
-/* Background cranes (depth) */
-.hs-crane-bg {
-    position: absolute; bottom: 30%; right: 42%;
-    opacity: .12; transform: scale(.4);
+/* Truck 3 - drives right, slower */
+.hs-truck-3 {
+    bottom: -1%;
+    animation: hsTruckR 22s linear infinite 9s;
+    opacity: .7; transform: scale(.85);
 }
-.hs-crane-bg .hs-crane-tower {
-    position: absolute; bottom: 0; left: 0; width: 20px; height: 400px;
-    background: linear-gradient(180deg, #d4a830, #b89020);
-}
-.hs-crane-bg .hs-crane-boom {
-    position: absolute; bottom: 390px; left: -160px; width: 360px; height: 16px;
-    background: linear-gradient(90deg, #d4a830, #c89828);
-    transform: rotate(-2deg);
-}
-.hs-crane-bg-2 {
-    right: 56%; opacity: .06; transform: scale(.28);
-}
+
 .hero-content { position: relative; z-index: 2; padding: 140px 0 60px; max-width: 640px; }
 .hero-badge {
     display: inline-block; padding: 6px 18px;
