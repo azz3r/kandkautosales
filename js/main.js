@@ -1,4 +1,4 @@
-// ===== K&K Auto Sales - Main JavaScript =====
+// ===== K&K Auto Sales - Transport Kolejowy =====
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -58,12 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Animated counter ---
-    const counters = document.querySelectorAll('.stat-number');
+    // --- Animated counters ---
+    const statNumbers = document.querySelectorAll('.stat-number');
     let countersAnimated = false;
 
     function animateCounters() {
-        counters.forEach(counter => {
+        statNumbers.forEach(counter => {
             const target = parseInt(counter.getAttribute('data-target'));
             const duration = 2000;
             const step = target / (duration / 16);
@@ -72,57 +72,66 @@ document.addEventListener('DOMContentLoaded', () => {
             function update() {
                 current += step;
                 if (current < target) {
-                    counter.textContent = Math.floor(current);
+                    counter.textContent = Math.floor(current).toLocaleString();
                     requestAnimationFrame(update);
                 } else {
-                    counter.textContent = target;
+                    counter.textContent = target.toLocaleString();
                 }
             }
             update();
         });
     }
 
-    // Trigger counters when hero is in view
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !countersAnimated) {
-                countersAnimated = true;
-                animateCounters();
-            }
+    // --- Stat bar animation ---
+    function animateStatBars() {
+        document.querySelectorAll('.stat-bar-fill').forEach(bar => {
+            bar.classList.add('animated');
         });
-    }, { threshold: 0.5 });
+    }
 
-    const heroStats = document.querySelector('.hero-stats');
-    if (heroStats) observer.observe(heroStats);
+    // --- Intersection Observer for animations ---
+    const observerOptions = { threshold: 0.2 };
 
-    // --- Car filter ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const carCards = document.querySelectorAll('.car-card');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-
-            carCards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.classList.remove('hidden');
-                    card.style.animation = 'fadeIn 0.4s ease';
-                } else {
-                    card.classList.add('hidden');
+    // Counter animation trigger
+    const statsSection = document.querySelector('.stats-grid');
+    if (statsSection) {
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersAnimated) {
+                    countersAnimated = true;
+                    animateCounters();
+                    animateStatBars();
                 }
             });
-        });
+        }, observerOptions);
+        statsObserver.observe(statsSection);
+    }
+
+    // --- Fade-in on scroll ---
+    document.querySelectorAll('.service-card, .step, .stat-card, .advantage, .contact-item, .route-stat').forEach(el => {
+        el.classList.add('fade-in');
     });
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Stagger the animation
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
     // --- Contact form ---
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            showToast('Thanks! We\'ll get back to you soon.');
+            showToast('Dziekujemy! Skontaktujemy sie wkrotce.');
             contactForm.reset();
         });
     }
@@ -146,42 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
         });
     });
-
-    // --- Fade-in animation on scroll ---
-    const fadeStyle = document.createElement('style');
-    fadeStyle.textContent = `
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    `;
-    document.head.appendChild(fadeStyle);
-
-    // Add fade-in class to elements
-    document.querySelectorAll('.car-card, .financing-card, .feature, .contact-item').forEach(el => {
-        el.classList.add('fade-in');
-    });
-
-    const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 });
