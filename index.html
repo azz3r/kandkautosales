@@ -4,419 +4,492 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K&K Auto Sales | Transport Kolejowy Chiny-Europa</title>
-    <meta name="description" content="K&K Auto Sales - Transport kolejowy z Chin do Europy. Szybka i niezawodna logistyka kontenerowa.">
+    <meta name="description" content="K&K Auto Sales - Profesjonalny transport kolejowy z Chin do Europy. Kontenery, logistyka, odprawy celne.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+
+    <!-- ===== PRELOADER ===== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-track">
+                <div class="preloader-train">
+                    <div class="pl-loco"></div>
+                    <div class="pl-wagon w-copper"></div>
+                    <div class="pl-wagon w-dark"></div>
+                    <div class="pl-wagon w-copper"></div>
+                </div>
+                <div class="preloader-rail"></div>
+            </div>
+            <div class="preloader-text">K&K Auto Sales</div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
     <header class="header" id="header">
-        <div class="container">
+        <div class="container header-inner">
             <a href="#" class="logo">
-                <span class="logo-k">K</span>&<span class="logo-k">K</span>
-                <span class="logo-text">Auto Sales</span>
+                <span class="logo-mark">K<span class="logo-amp">&</span>K</span>
+                <span class="logo-sub">Auto Sales</span>
             </a>
             <nav class="nav" id="nav">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#services" class="nav-link">Uslugi</a>
-                <a href="#how" class="nav-link">Jak dzialamy</a>
-                <a href="#why" class="nav-link">Dlaczego my</a>
+                <a href="#process" class="nav-link">Proces</a>
+                <a href="#stats" class="nav-link">O nas</a>
                 <a href="#contact" class="nav-link">Kontakt</a>
             </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <a href="#contact" class="header-cta">Wycena</a>
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO ===== -->
     <section class="hero" id="home">
-        <div class="hero-bg-elements">
-            <div class="grid-lines"></div>
+        <!-- Animated background -->
+        <div class="hero-scene">
+            <!-- Moving landscape layers -->
+            <div class="landscape-layer mountains"></div>
+            <div class="landscape-layer hills"></div>
+            <div class="landscape-layer ground"></div>
+
+            <!-- Animated train on tracks -->
+            <div class="scene-train">
+                <div class="train-body">
+                    <div class="engine">
+                        <div class="engine-top"></div>
+                        <div class="engine-body"></div>
+                        <div class="engine-front"></div>
+                        <div class="headlight"></div>
+                    </div>
+                    <div class="car car-copper"></div>
+                    <div class="car car-dark"></div>
+                    <div class="car car-copper"></div>
+                    <div class="car car-dark"></div>
+                    <div class="car car-copper"></div>
+                    <div class="car car-dark"></div>
+                    <div class="car car-copper"></div>
+                </div>
+                <div class="track-marks"></div>
+            </div>
+
+            <!-- Floating particles -->
+            <div class="particles">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="hero-gradient"></div>
         </div>
+
         <div class="container hero-content">
-            <div class="hero-text">
-                <div class="hero-badge">Transport Kolejowy Chiny - Europa</div>
-                <h1 class="hero-title">Twoj towar z <span class="text-gold">Chin</span> do <span class="text-red">Europy</span></h1>
-                <p class="hero-subtitle">Niezawodny transport kolejowy kontenerow na trasie Nowy Jedwabny Szlak. Szybciej niz morzem, taniej niz samolotem.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Zapytaj o wycene</a>
-                    <a href="#how" class="btn btn-outline">Jak to dziala</a>
-                </div>
-            </div>
-
-            <!-- Animated Route Map -->
-            <div class="route-map">
-                <div class="map-container">
-                    <svg class="map-svg" viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Route line -->
-                        <path class="route-path" d="M 530 120 C 480 110, 420 80, 360 90 C 300 100, 260 130, 200 120 C 150 112, 120 100, 70 110" fill="none" stroke="#c8a44e" stroke-width="3" stroke-dasharray="8,6"/>
-                        <path class="route-path-glow" d="M 530 120 C 480 110, 420 80, 360 90 C 300 100, 260 130, 200 120 C 150 112, 120 100, 70 110" fill="none" stroke="#c8a44e" stroke-width="3"/>
-
-                        <!-- China marker -->
-                        <g class="map-marker china-marker">
-                            <circle cx="530" cy="120" r="8" fill="#dc2626" opacity="0.3">
-                                <animate attributeName="r" values="8;16;8" dur="2s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="530" cy="120" r="6" fill="#dc2626"/>
-                            <text x="530" y="150" text-anchor="middle" fill="#dc2626" font-size="13" font-weight="700">CHINY</text>
-                        </g>
-
-                        <!-- Intermediate points -->
-                        <circle cx="360" cy="90" r="3" fill="#c8a44e" opacity="0.6"/>
-                        <text x="360" y="78" text-anchor="middle" fill="#c8a44e" font-size="9" opacity="0.6">Kazachstan</text>
-
-                        <circle cx="200" cy="120" r="3" fill="#c8a44e" opacity="0.6"/>
-                        <text x="200" y="108" text-anchor="middle" fill="#c8a44e" font-size="9" opacity="0.6">Moskwa</text>
-
-                        <!-- Europe marker -->
-                        <g class="map-marker europe-marker">
-                            <circle cx="70" cy="110" r="8" fill="#c8a44e" opacity="0.3">
-                                <animate attributeName="r" values="8;16;8" dur="2s" repeatCount="indefinite" begin="1s"/>
-                                <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite" begin="1s"/>
-                            </circle>
-                            <circle cx="70" cy="110" r="6" fill="#c8a44e"/>
-                            <text x="70" y="140" text-anchor="middle" fill="#c8a44e" font-size="13" font-weight="700">EUROPA</text>
-                        </g>
-
-                        <!-- Moving train -->
-                        <g class="train-icon">
-                            <rect x="-20" y="-8" width="40" height="16" rx="3" fill="#c8a44e"/>
-                            <rect x="-16" y="-5" width="8" height="10" rx="1" fill="#0f1219" opacity="0.5"/>
-                            <rect x="-4" y="-5" width="8" height="10" rx="1" fill="#0f1219" opacity="0.5"/>
-                            <rect x="8" y="-5" width="8" height="10" rx="1" fill="#0f1219" opacity="0.5"/>
-                            <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
-                                <mpath href="#trainPath"/>
-                            </animateMotion>
-                        </g>
-
-                        <path id="trainPath" d="M 530 120 C 480 110, 420 80, 360 90 C 300 100, 260 130, 200 120 C 150 112, 120 100, 70 110" fill="none" stroke="none"/>
-                    </svg>
-                </div>
-
-                <div class="route-stats">
-                    <div class="route-stat">
-                        <span class="route-stat-value">12 000+</span>
-                        <span class="route-stat-label">km trasy</span>
-                    </div>
-                    <div class="route-stat">
-                        <span class="route-stat-value">14-18</span>
-                        <span class="route-stat-label">dni dostawy</span>
-                    </div>
-                    <div class="route-stat">
-                        <span class="route-stat-value">2x</span>
-                        <span class="route-stat-label">szybciej niz morzem</span>
-                    </div>
-                </div>
+            <div class="hero-badge">Nowy Jedwabny Szlak</div>
+            <h1 class="hero-title">Transport kolejowy<br><span class="text-copper">z Chin do Europy</span></h1>
+            <p class="hero-desc">Szybciej niz morzem. Taniej niz samolotem.<br>Niezawodna logistyka kontenerowa na trasie ponad 9 000 km.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-copper">Zapytaj o wycene</a>
+                <a href="#process" class="btn btn-ghost">Jak to dziala <span class="btn-arrow">&rarr;</span></a>
             </div>
         </div>
 
-        <!-- Container Loading Animation -->
-        <div class="container-loader">
-            <div class="train-track">
-                <div class="track-line"></div>
-                <div class="train-wagons">
-                    <div class="locomotive">
-                        <div class="loco-body"></div>
-                        <div class="loco-cabin"></div>
-                        <div class="loco-chimney"></div>
-                    </div>
-                    <div class="wagon">
-                        <div class="container-box c-red"></div>
-                    </div>
-                    <div class="wagon">
-                        <div class="container-box c-gold"></div>
-                    </div>
-                    <div class="wagon">
-                        <div class="container-box c-red"></div>
-                    </div>
-                    <div class="wagon">
-                        <div class="container-box c-gold"></div>
-                    </div>
-                    <div class="wagon">
-                        <div class="container-box c-red"></div>
-                    </div>
+        <!-- Route ribbon at bottom -->
+        <div class="route-ribbon">
+            <div class="route-ribbon-inner">
+                <div class="route-point">
+                    <div class="rp-dot rp-china"></div>
+                    <span>Chiny</span>
                 </div>
+                <div class="route-line"></div>
+                <div class="route-point">
+                    <div class="rp-dot"></div>
+                    <span>Kazachstan</span>
+                </div>
+                <div class="route-line"></div>
+                <div class="route-point">
+                    <div class="rp-dot"></div>
+                    <span>Rosja</span>
+                </div>
+                <div class="route-line"></div>
+                <div class="route-point">
+                    <div class="rp-dot"></div>
+                    <span>Bialorus</span>
+                </div>
+                <div class="route-line"></div>
+                <div class="route-point">
+                    <div class="rp-dot rp-europe"></div>
+                    <span>Polska / UE</span>
+                </div>
+                <div class="route-train-dot"></div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section services" id="services">
+    <!-- ===== SERVICES ===== -->
+    <section class="section" id="services">
         <div class="container">
-            <h2 class="section-title">Nasze Uslugi</h2>
-            <p class="section-subtitle">Kompleksowa obsluga transportu kolejowego z Chin do Europy</p>
+            <div class="section-head">
+                <span class="section-tag">Uslugi</span>
+                <h2 class="section-title">Kompleksowa obsluga<br>transportu z Chin</h2>
+            </div>
 
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
+                <div class="svc-card">
+                    <div class="svc-num">01</div>
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
                     <h3>Transport Kolejowy</h3>
-                    <p>Regularne polaczenia kolejowe na trasie Chiny-Europa przez Nowy Jedwabny Szlak. Kontenery 20' i 40'.</p>
-                    <div class="service-tag">14-18 dni</div>
+                    <p>Regularne polaczenia Chiny-Europa. Kontenery 20' i 40'. Czas dostawy 14-18 dni.</p>
+                    <span class="svc-tag">Ekspres</span>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                        </svg>
+                <div class="svc-card">
+                    <div class="svc-num">02</div>
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                     </div>
                     <h3>Obsluga Kontenerow</h3>
-                    <p>Zaladunki, rozladunki, konsolidacja towarow. Pelna obsluga kontenerowa w terminalach w Chinach i Europie.</p>
-                    <div class="service-tag">FCL & LCL</div>
+                    <p>FCL, LCL, konsolidacja. Zaladunki i rozladunki w terminalach w Chinach i Europie.</p>
+                    <span class="svc-tag">FCL / LCL</span>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-                        </svg>
+                <div class="svc-card">
+                    <div class="svc-num">03</div>
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                     </div>
-                    <h3>Logistyka z Chin</h3>
-                    <p>Odbiory od producentow, odprawy celne, dokumentacja. Organizujemy caly lancuch dostaw od drzwi do drzwi.</p>
-                    <div class="service-tag">Door to Door</div>
+                    <h3>Odprawy Celne</h3>
+                    <p>Pelna dokumentacja celna, SAD, T1. Obsluga importu z Chin do UE bez stresu.</p>
+                    <span class="svc-tag">Dokumenty</span>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
+                <div class="svc-card">
+                    <div class="svc-num">04</div>
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1m-2 0h2"/></svg>
+                    </div>
+                    <h3>Door to Door</h3>
+                    <p>Odbiory od producentow w Chinach az po dostawe pod Twoje drzwi w Europie.</p>
+                    <span class="svc-tag">Komplet</span>
+                </div>
+
+                <div class="svc-card">
+                    <div class="svc-num">05</div>
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     </div>
                     <h3>Ubezpieczenie Cargo</h3>
-                    <p>Pelne ubezpieczenie towarow na caly czas transportu. Ochrona od zaladunku do rozladunku.</p>
-                    <div class="service-tag">Full Cover</div>
+                    <p>Pelne ubezpieczenie towaru od zaladunku do rozladunku. All-risk coverage.</p>
+                    <span class="svc-tag">All Risk</span>
+                </div>
+
+                <div class="svc-card">
+                    <div class="svc-num">06</div>
+                    <div class="svc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3>Tracking GPS</h3>
+                    <p>Sledzenie przesylki w czasie rzeczywistym. Wiesz gdzie jest Twoj towar 24/7.</p>
+                    <span class="svc-tag">Live</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How We Work Section -->
-    <section class="section how-section" id="how">
+    <!-- ===== CRANE ANIMATION DIVIDER ===== -->
+    <section class="crane-section">
+        <div class="crane-scene">
+            <div class="crane">
+                <div class="crane-base"></div>
+                <div class="crane-tower"></div>
+                <div class="crane-arm"></div>
+                <div class="crane-cable"></div>
+                <div class="crane-hook"></div>
+                <div class="crane-container"></div>
+            </div>
+            <div class="yard-containers">
+                <div class="yc yc-1"></div>
+                <div class="yc yc-2"></div>
+                <div class="yc yc-3"></div>
+            </div>
+            <div class="flatcar">
+                <div class="flatcar-body"></div>
+                <div class="flatcar-wheel w1"></div>
+                <div class="flatcar-wheel w2"></div>
+                <div class="loaded-container"></div>
+            </div>
+            <div class="yard-ground"></div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="section section-dark" id="process">
         <div class="container">
-            <h2 class="section-title">Jak Dzialamy</h2>
-            <p class="section-subtitle">4 proste kroki od zamowienia do dostawy</p>
+            <div class="section-head">
+                <span class="section-tag">Proces</span>
+                <h2 class="section-title">4 kroki do dostawy<br>z Chin do Europy</h2>
+            </div>
 
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/>
-                        </svg>
+            <div class="process-timeline">
+                <div class="process-line"></div>
+
+                <div class="process-step">
+                    <div class="ps-marker">
+                        <div class="ps-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                        </div>
                     </div>
-                    <h3>Zamowienie z Chin</h3>
-                    <p>Pomagamy skoordynowac odbiory od Twoich dostawcow w calych Chinach.</p>
-                    <div class="step-connector"></div>
+                    <div class="ps-content">
+                        <span class="ps-num">Krok 01</span>
+                        <h3>Zapytanie ofertowe</h3>
+                        <p>Wyslij zapytanie - podaj skad, dokad, jaki towar. W ciagu 24h otrzymasz wycene transportu.</p>
+                    </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                        </svg>
+                <div class="process-step">
+                    <div class="ps-marker">
+                        <div class="ps-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                        </div>
                     </div>
-                    <h3>Zaladunek</h3>
-                    <p>Konsolidacja i zaladunki kontenerow w terminalu kolejowym w Chinach.</p>
-                    <div class="step-connector"></div>
+                    <div class="ps-content">
+                        <span class="ps-num">Krok 02</span>
+                        <h3>Zaladunek w Chinach</h3>
+                        <p>Odbieramy towar od producenta, konsolidujemy i ladujemy na kontener w terminalu kolejowym.</p>
+                    </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
+                <div class="process-step">
+                    <div class="ps-marker">
+                        <div class="ps-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
                     </div>
-                    <h3>Transport Kolejowy</h3>
-                    <p>Ekspresowa trasa kolejowa przez Kazachstan, Rosje i Bialorus do Europy.</p>
-                    <div class="step-connector"></div>
+                    <div class="ps-content">
+                        <span class="ps-num">Krok 03</span>
+                        <h3>Tranzyt kolejowy</h3>
+                        <p>Transport ekspresowy przez Kazachstan, Rosje, Bialorus. GPS tracking 24/7. Okolo 14-18 dni.</p>
+                    </div>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">04</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
-                        </svg>
+                <div class="process-step">
+                    <div class="ps-marker">
+                        <div class="ps-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
                     </div>
-                    <h3>Dostawa</h3>
-                    <p>Odprawa celna w UE i dostarczenie towaru pod wskazany adres w Europie.</p>
+                    <div class="ps-content">
+                        <span class="ps-num">Krok 04</span>
+                        <h3>Dostawa w Europie</h3>
+                        <p>Odprawa celna w UE, rozladunek i dostarczenie towaru pod wskazany adres. Gotowe!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Us Section -->
-    <section class="section why-section" id="why">
+    <!-- ===== STATS ===== -->
+    <section class="section" id="stats">
         <div class="container">
-            <h2 class="section-title">Dlaczego My</h2>
-            <p class="section-subtitle">Liczby mowia same za siebie</p>
+            <div class="section-head">
+                <span class="section-tag">O nas</span>
+                <h2 class="section-title">Liczby mowia<br>same za siebie</h2>
+            </div>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" data-target="2500">0</div>
-                    <div class="stat-unit">kontenerow / rok</div>
-                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 85%"></div></div>
+            <div class="stats-row">
+                <div class="stat-block">
+                    <div class="stat-val" data-target="1500">0</div>
+                    <div class="stat-plus">+</div>
+                    <div class="stat-label">kontenerow rocznie</div>
+                    <div class="stat-bar"><span style="--w:85%"></span></div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="12000">0</div>
-                    <div class="stat-unit">km trasy</div>
-                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 95%"></div></div>
+                <div class="stat-block">
+                    <div class="stat-val" data-target="9200">0</div>
+                    <div class="stat-plus">km</div>
+                    <div class="stat-label">trasy kolejowej</div>
+                    <div class="stat-bar"><span style="--w:92%"></span></div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="14">0</div>
-                    <div class="stat-unit">dni dostawy</div>
-                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 70%"></div></div>
+                <div class="stat-block">
+                    <div class="stat-val" data-target="16">0</div>
+                    <div class="stat-plus">dni</div>
+                    <div class="stat-label">sredni czas dostawy</div>
+                    <div class="stat-bar"><span style="--w:70%"></span></div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="99">0</div>
-                    <div class="stat-unit">% terminowosc</div>
-                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 99%"></div></div>
+                <div class="stat-block">
+                    <div class="stat-val" data-target="200">0</div>
+                    <div class="stat-plus">+</div>
+                    <div class="stat-label">stalych klientow</div>
+                    <div class="stat-bar"><span style="--w:78%"></span></div>
                 </div>
             </div>
 
-            <div class="advantages">
-                <div class="advantage">
-                    <div class="adv-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <!-- Comparison -->
+            <div class="compare">
+                <h3 class="compare-title">Dlaczego kolej?</h3>
+                <div class="compare-grid">
+                    <div class="compare-card">
+                        <div class="cc-icon sea">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17h1.5L7 12l2.5 5h5L17 12l2.5 5H21"/><path d="M5 21h14"/></svg>
+                        </div>
+                        <h4>vs Transport morski</h4>
+                        <div class="cc-stat">
+                            <span class="cc-big text-copper">3x</span>
+                            <span>szybciej</span>
+                        </div>
+                        <p>14-18 dni koleją vs 35-45 dni morzem</p>
                     </div>
-                    <h4>2x szybciej niz morzem</h4>
-                    <p>Transport kolejowy to 14-18 dni vs 35-45 dni drogą morską.</p>
-                </div>
-                <div class="advantage">
-                    <div class="adv-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div class="compare-card">
+                        <div class="cc-icon air">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19l-7-7 1.41-1.41L12 16.17l7.59-7.59L21 10l-9 9z"/><path d="M5 5l14 0"/></svg>
+                        </div>
+                        <h4>vs Transport lotniczy</h4>
+                        <div class="cc-stat">
+                            <span class="cc-big text-copper">50%</span>
+                            <span>taniej</span>
+                        </div>
+                        <p>Polowa kosztow przy porownywalnymczasie</p>
                     </div>
-                    <h4>5x taniej niz samolotem</h4>
-                    <p>Optymalne koszty transportu przy zachowaniu szybkiego czasu dostawy.</p>
-                </div>
-                <div class="advantage">
-                    <div class="adv-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div class="compare-card">
+                        <div class="cc-icon eco">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h4>Ekologia</h4>
+                        <div class="cc-stat">
+                            <span class="cc-big text-copper">75%</span>
+                            <span>mniej CO2</span>
+                        </div>
+                        <p>Najnizszy slad weglowy sposrod alternatyw</p>
                     </div>
-                    <h4>Mniejszy slad weglowy</h4>
-                    <p>Transport kolejowy emituje do 75% mniej CO2 niż transport drogowy.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
+    <!-- ===== CONTACT ===== -->
+    <section class="section section-dark" id="contact">
         <div class="container">
-            <h2 class="section-title">Skontaktuj sie z nami</h2>
-            <p class="section-subtitle">Zapytaj o wycene transportu lub umow sie na konsultacje</p>
+            <div class="section-head">
+                <span class="section-tag">Kontakt</span>
+                <h2 class="section-title">Porozmawiajmy<br>o Twoim transporcie</h2>
+            </div>
 
-            <div class="contact-grid">
+            <div class="contact-layout">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <div class="ci-item">
+                        <div class="ci-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
                         <div>
-                            <h4>Biuro</h4>
-                            <p>ul. Kolejowa 15<br>00-001 Warszawa</p>
+                            <strong>Biuro</strong>
+                            <p>ul. Kolejowa 15, 00-001 Warszawa</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    <div class="ci-item">
+                        <div class="ci-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                         </div>
                         <div>
-                            <h4>Telefon</h4>
+                            <strong>Telefon</strong>
                             <p>+48 123 456 789</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <div class="ci-item">
+                        <div class="ci-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         </div>
                         <div>
-                            <h4>Email</h4>
+                            <strong>Email</strong>
                             <p>info@kkautosales.com</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div class="ci-item">
+                        <div class="ci-icon wechat">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.328.328 0 00.186-.059l1.884-1.088a.59.59 0 01.504-.048c1.084.333 2.237.517 3.05.517.227 0 .45-.012.67-.031-.248-.656-.394-1.356-.394-2.086 0-3.46 3.3-6.27 7.374-6.27.258 0 .511.014.762.036C16.143 4.604 12.702 2.188 8.691 2.188zm8.65 7.75c-3.542 0-6.414 2.39-6.414 5.334 0 2.945 2.872 5.335 6.414 5.335.93 0 1.826-.15 2.647-.428a.59.59 0 01.472.036l1.468.847a.296.296 0 00.146.041.279.279 0 00.279-.279c0-.054-.022-.108-.036-.163l-.3-1.146a.59.59 0 01.166-.52C23.393 17.96 24 16.504 24 14.938c0-2.944-2.872-5.334-6.414-5.334l-.245-.466z"/></svg>
                         </div>
                         <div>
-                            <h4>Godziny pracy</h4>
-                            <p>Pon-Pt: 8:00 - 17:00<br>Sob-Ndz: Zamkniete</p>
+                            <strong>WeChat</strong>
+                            <p>KK_AutoSales</p>
                         </div>
+                    </div>
+
+                    <div class="ci-hours">
+                        <strong>Godziny pracy</strong>
+                        <p>Pon-Pt: 8:00 - 17:00</p>
+                        <p>Sob-Ndz: Zamkniete</p>
                     </div>
                 </div>
 
                 <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Imie i nazwisko" required>
+                    <div class="form-2col">
+                        <div class="field">
+                            <input type="text" placeholder="Imie i nazwisko" required>
                         </div>
-                        <div class="form-group">
-                            <input type="text" id="company" placeholder="Firma">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" placeholder="Telefon">
+                        <div class="field">
+                            <input type="text" placeholder="Firma">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <select id="service">
-                            <option value="" disabled selected>Wybierz usluge...</option>
-                            <option value="fcl">Transport FCL (caly kontener)</option>
-                            <option value="lcl">Transport LCL (drobnica)</option>
-                            <option value="door">Door to Door</option>
-                            <option value="customs">Odprawa celna</option>
-                            <option value="other">Inne zapytanie</option>
+                    <div class="form-2col">
+                        <div class="field">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="field">
+                            <input type="tel" placeholder="Telefon">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <select required>
+                            <option value="" disabled selected>Typ kontenera...</option>
+                            <option value="20">Kontener 20'</option>
+                            <option value="40">Kontener 40'</option>
+                            <option value="40hc">Kontener 40' HC</option>
+                            <option value="lcl">LCL (drobnica)</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <textarea id="message" rows="4" placeholder="Opisz swoje potrzeby transportowe..." required></textarea>
+                    <div class="form-2col">
+                        <div class="field">
+                            <input type="text" placeholder="Miasto nadania (Chiny)">
+                        </div>
+                        <div class="field">
+                            <input type="text" placeholder="Miasto dostawy (Europa)">
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">Wyslij zapytanie</button>
+                    <div class="field">
+                        <textarea rows="4" placeholder="Dodatkowe informacje o towarze..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-copper btn-full">Wyslij zapytanie</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <span class="logo-k">K</span>&<span class="logo-k">K</span>
-                        <span class="logo-text">Auto Sales</span>
+                        <span class="logo-mark">K<span class="logo-amp">&</span>K</span>
+                        <span class="logo-sub">Auto Sales</span>
                     </a>
-                    <p>Transport kolejowy z Chin do Europy. Niezawodna logistyka kontenerowa na Nowym Jedwabnym Szlaku.</p>
+                    <p>Profesjonalny transport kolejowy z Chin do Europy. Nowy Jedwabny Szlak - Twoja droga do sprawnej logistyki.</p>
                 </div>
-                <div class="footer-links">
+                <div class="footer-col">
                     <h4>Nawigacja</h4>
                     <a href="#services">Uslugi</a>
-                    <a href="#how">Jak dzialamy</a>
-                    <a href="#why">Dlaczego my</a>
+                    <a href="#process">Proces</a>
+                    <a href="#stats">O nas</a>
                     <a href="#contact">Kontakt</a>
                 </div>
-                <div class="footer-links">
+                <div class="footer-col">
                     <h4>Uslugi</h4>
                     <a href="#services">Transport kolejowy</a>
                     <a href="#services">Obsluga kontenerow</a>
-                    <a href="#services">Logistyka z Chin</a>
-                    <a href="#services">Ubezpieczenie cargo</a>
+                    <a href="#services">Odprawy celne</a>
+                    <a href="#services">Door to Door</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -424,6 +497,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
 
     <script src="js/main.js"></script>
 </body>
