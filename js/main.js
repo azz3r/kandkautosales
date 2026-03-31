@@ -1,26 +1,9 @@
-// ===== K&K Auto Sales - Transport Kolejowy =====
-
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- Preloader ---
-    const preloader = document.getElementById('preloader');
-    function hidePreloader() {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-        }, 1500);
-    }
-    if (document.readyState === 'complete') {
-        hidePreloader();
-    } else {
-        window.addEventListener('load', hidePreloader);
-    }
 
     // --- Header scroll ---
     const header = document.getElementById('header');
-    let lastScroll = 0;
     window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', window.scrollY > 60);
-        lastScroll = window.scrollY;
     });
 
     // --- Mobile menu ---
@@ -77,19 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function animateCounters() {
         statVals.forEach(el => {
             const target = parseInt(el.dataset.target);
-            const duration = 2200;
-            const fps = 60;
-            const totalFrames = duration / (1000 / fps);
-            const step = target / totalFrames;
-            let current = 0;
+            const totalFrames = 120;
             let frame = 0;
 
             function tick() {
                 frame++;
-                // Ease out quad
                 const progress = frame / totalFrames;
-                const easedProgress = 1 - (1 - progress) * (1 - progress);
-                current = Math.floor(easedProgress * target);
+                const eased = 1 - (1 - progress) * (1 - progress);
+                const current = Math.floor(eased * target);
 
                 if (frame < totalFrames) {
                     el.textContent = current.toLocaleString('pl-PL');
@@ -100,50 +78,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             tick();
         });
-
-        // Animate stat bars
-        document.querySelectorAll('.stat-bar span').forEach(bar => {
-            setTimeout(() => bar.classList.add('animated'), 300);
-        });
     }
 
     // --- Intersection Observer ---
-    const observeCallback = (entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Fade in
                 if (entry.target.classList.contains('fade-in')) {
                     entry.target.classList.add('visible');
                 }
-                // Counters
                 if (entry.target.classList.contains('stats-row') && !countersAnimated) {
                     countersAnimated = true;
                     animateCounters();
                 }
             }
         });
-    };
-
-    const observer = new IntersectionObserver(observeCallback, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -40px 0px'
-    });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     // Add fade-in to elements
-    const fadeTargets = [
-        '.svc-card', '.process-step', '.stat-block',
-        '.compare-card', '.ci-item', '.advantage'
-    ];
-
-    fadeTargets.forEach(selector => {
-        document.querySelectorAll(selector).forEach((el, i) => {
+    ['.svc-card', '.step-card', '.stat-block', '.compare-card', '.ci-item'].forEach(sel => {
+        document.querySelectorAll(sel).forEach((el, i) => {
             el.classList.add('fade-in');
             el.style.transitionDelay = `${i * 80}ms`;
             observer.observe(el);
         });
     });
 
-    // Observe stats row for counter trigger
     const statsRow = document.querySelector('.stats-row');
     if (statsRow) observer.observe(statsRow);
 
@@ -152,24 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            e.stopPropagation();
-
-            // Basic validation
-            const requiredFields = form.querySelectorAll('[required]');
+            const required = form.querySelectorAll('[required]');
             let valid = true;
-            requiredFields.forEach(field => {
-                if (!field.value || field.value.trim() === '') {
+            required.forEach(f => {
+                if (!f.value || !f.value.trim()) {
                     valid = false;
-                    field.style.borderColor = '#c44536';
-                    setTimeout(() => { field.style.borderColor = ''; }, 2000);
+                    f.style.borderColor = '#c44536';
+                    setTimeout(() => { f.style.borderColor = ''; }, 2000);
                 }
             });
-
-            if (!valid) {
-                showToast('Wypelnij wymagane pola.');
-                return;
-            }
-
+            if (!valid) { showToast('Wypelnij wymagane pola.'); return; }
             showToast('Dziekujemy! Odpowiemy w ciagu 24h.');
             form.reset();
         });
@@ -190,10 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 const offset = document.querySelector('.header').offsetHeight;
-                window.scrollTo({
-                    top: target.offsetTop - offset,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
             }
         });
     });
