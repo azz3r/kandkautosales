@@ -124,8 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => { f.style.borderColor = ''; }, 2000);
                 }
             });
-            if (!valid) { showToast('Wypelnij wymagane pola.'); return; }
-            showToast('Dziekujemy! Odpowiemy w ciagu godziny.');
+            const lang = window.kkLang || 'pl';
+            const t = (typeof translations !== 'undefined' && translations[lang]) || {};
+            if (!valid) { showToast(t['toast.error'] || 'Wypelnij wymagane pola.'); return; }
+            showToast(t['toast.success'] || 'Dziekujemy! Odpowiemy w ciagu godziny.');
             form.reset();
         });
     }

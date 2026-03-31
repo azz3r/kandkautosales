@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
+    <script src="js/i18n.js" defer></script></head>
 <body>
 
     <!-- ===== HEADER ===== -->
@@ -19,13 +19,17 @@
                 <span class="logo-sub">Auto Sales</span>
             </a>
             <nav class="nav" id="nav">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#terminals" class="nav-link">Terminale</a>
-                <a href="#services" class="nav-link">Uslugi</a>
-                <a href="#process" class="nav-link">Jak dzialamy</a>
-                <a href="#contact" class="nav-link">Kontakt</a>
+                <a href="#home" class="nav-link active" data-i18n="nav.home">Home</a>
+                <a href="#terminals" class="nav-link" data-i18n="nav.terminals">Terminale</a>
+                <a href="#services" class="nav-link" data-i18n="nav.services">Uslugi</a>
+                <a href="#process" class="nav-link" data-i18n="nav.process">Jak dzialamy</a>
+                <a href="#contact" class="nav-link" data-i18n="nav.contact">Kontakt</a>
             </nav>
-            <a href="#contact" class="header-cta">Wycena</a>
+            <div class="lang-switch">
+                <button class="lang-btn lang-active" data-lang="pl">PL</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <a href="#contact" class="header-cta" data-i18n="nav.cta">Wycena</a>
             <button class="burger" id="burger" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
@@ -144,12 +148,12 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <div class="hero-badge">Terminale kolejowe &bull; Porty &bull; Last Mile</div>
-            <h1 class="hero-title">Odbieramy kontenery.<br>Dostarczamy pod drzwi.</h1>
-            <p class="hero-desc">Profesjonalny transport kontenerow z terminalow w Malaszewiczach, Gdansku i Duisburgu. Od suwnicy do Twojego magazynu.</p>
+            <div class="hero-badge" data-i18n="hero.badge">Terminale kolejowe &bull; Porty &bull; Last Mile</div>
+            <h1 class="hero-title" data-i18n="hero.title">Odbieramy kontenery.<br>Dostarczamy pod drzwi.</h1>
+            <p class="hero-desc" data-i18n="hero.desc">Profesjonalny transport kontenerow z terminalow w Malaszewiczach, Gdansku i Duisburgu. Od suwnicy do Twojego magazynu.</p>
             <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary">Zapytaj o wycene</a>
-                <a href="#process" class="btn btn-white">Jak to dziala <span class="btn-arrow">&rarr;</span></a>
+                <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Zapytaj o wycene</a>
+                <a href="#process" class="btn btn-white" data-i18n="hero.cta2">Jak to dziala <span class="btn-arrow">&rarr;</span></a>
             </div>
         </div>
 
@@ -160,21 +164,21 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     <div>
                         <strong>Malaszewicze</strong>
-                        <span>Terminal kolejowy</span>
+                        <span data-i18n="tb.malaszewicze">Terminal kolejowy</span>
                     </div>
                 </div>
                 <div class="terminal-badge">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     <div>
                         <strong>Gdansk</strong>
-                        <span>Terminal portowy</span>
+                        <span data-i18n="tb.gdansk">Terminal portowy</span>
                     </div>
                 </div>
                 <div class="terminal-badge">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     <div>
                         <strong>Duisburg</strong>
-                        <span>Terminal intermodalny</span>
+                        <span data-i18n="tb.duisburg">Terminal intermodalny</span>
                     </div>
                 </div>
             </div>
@@ -185,9 +189,9 @@
     <section class="crane-section" id="terminals">
         <div class="container">
             <div class="section-head">
-                <span class="section-tag">Terminale</span>
-                <h2 class="section-title">Z terminalu na Twoja ciezarowke</h2>
-                <p class="section-desc">Obserwuj jak dziala nasz proces zaladunku kontenerow</p>
+                <span class="section-tag" data-i18n="crane.tag">Terminale</span>
+                <h2 class="section-title" data-i18n="crane.title">Z terminalu na Twoja ciezarowke</h2>
+                <p class="section-desc" data-i18n="crane.desc">Obserwuj jak dziala nasz proces zaladunku kontenerow</p>
             </div>
         </div>
         <div class="crane-animation">
@@ -340,8 +344,8 @@
         <div class="img-divider-overlay"></div>
         <div class="container img-divider-content">
             <div class="divider-stat">
-                <span class="ds-number">500+</span>
-                <span class="ds-label">kontenerow obsluzonych miesiecznie</span>
+                <span class="ds-number" data-i18n="div.trains.number">500+</span>
+                <span class="ds-label" data-i18n="div.trains.label">kontenerow obsluzonych miesiecznie</span>
             </div>
         </div>
     </section>
@@ -350,9 +354,9 @@
     <section class="section section-gray" id="services">
         <div class="container">
             <div class="section-head">
-                <span class="section-tag">Uslugi</span>
-                <h2 class="section-title">Co robimy</h2>
-                <p class="section-desc">Kompleksowa obsluga kontenerow od momentu przyjazdu na terminal az po dostawe do Twojego magazynu.</p>
+                <span class="section-tag" data-i18n="svc.tag">Uslugi</span>
+                <h2 class="section-title" data-i18n="svc.title">Co robimy</h2>
+                <p class="section-desc" data-i18n="svc.desc">Kompleksowa obsluga kontenerow od momentu przyjazdu na terminal az po dostawe do Twojego magazynu.</p>
             </div>
 
             <div class="services-grid">
@@ -360,54 +364,54 @@
                     <div class="svc-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 17h2m4 0h2M5 9h14l1 8H4L5 9zm1-5h12l1 5H5l1-5z"/></svg>
                     </div>
-                    <h3>Odbiory z terminali</h3>
-                    <p>Odbieramy kontenery z terminalow kolejowych i portowych w Malaszewiczach, Gdansku i Duisburgu.</p>
-                    <span class="svc-tag">Terminal &rarr; Droga</span>
+                    <h3 data-i18n="svc.1.title">Odbiory z terminali</h3>
+                    <p data-i18n="svc.1.desc">Odbieramy kontenery z terminalow kolejowych i portowych w Malaszewiczach, Gdansku i Duisburgu.</p>
+                    <span class="svc-tag" data-i18n="svc.1.tag">Terminal &rarr; Droga</span>
                 </div>
 
                 <div class="svc-card">
                     <div class="svc-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
                     </div>
-                    <h3>Transport drogowy</h3>
-                    <p>Dostarczamy kontenery ciezarowkami bezposrednio pod Twoj adres w calej Europie.</p>
-                    <span class="svc-tag">Door to Door</span>
+                    <h3 data-i18n="svc.2.title">Transport drogowy</h3>
+                    <p data-i18n="svc.2.desc">Dostarczamy kontenery ciezarowkami bezposrednio pod Twoj adres w calej Europie.</p>
+                    <span class="svc-tag" data-i18n="svc.2.tag">Door to Door</span>
                 </div>
 
                 <div class="svc-card">
                     <div class="svc-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                     </div>
-                    <h3>Rozladunek kontenerow</h3>
-                    <p>Rozladowujemy kontenery w magazynie klienta. Ekipa + sprzet do rozladunku towaru.</p>
-                    <span class="svc-tag">Full Service</span>
+                    <h3 data-i18n="svc.3.title">Rozladunek kontenerow</h3>
+                    <p data-i18n="svc.3.desc">Rozladowujemy kontenery w magazynie klienta. Ekipa + sprzet do rozladunku towaru.</p>
+                    <span class="svc-tag" data-i18n="svc.3.tag">Full Service</span>
                 </div>
 
                 <div class="svc-card">
                     <div class="svc-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                     </div>
-                    <h3>Odprawy celne</h3>
-                    <p>Pelna obsluga celna - import, eksport, tranzyt. Dokumentacja SAD, T1, CMR.</p>
-                    <span class="svc-tag">Dokumenty</span>
+                    <h3 data-i18n="svc.4.title">Odprawy celne</h3>
+                    <p data-i18n="svc.4.desc">Pelna obsluga celna - import, eksport, tranzyt. Dokumentacja SAD, T1, CMR.</p>
+                    <span class="svc-tag" data-i18n="svc.4.tag">Dokumenty</span>
                 </div>
 
                 <div class="svc-card">
                     <div class="svc-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
                     </div>
-                    <h3>Magazynowanie</h3>
-                    <p>Tymczasowe skladowanie kontenerow i towarow. Krotko- i dlugoterminowe.</p>
-                    <span class="svc-tag">Storage</span>
+                    <h3 data-i18n="svc.5.title">Magazynowanie</h3>
+                    <p data-i18n="svc.5.desc">Tymczasowe skladowanie kontenerow i towarow. Krotko- i dlugoterminowe.</p>
+                    <span class="svc-tag" data-i18n="svc.5.tag">Storage</span>
                 </div>
 
                 <div class="svc-card">
                     <div class="svc-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
-                    <h3>GPS Tracking</h3>
-                    <p>Sledzenie Twojego kontenera w czasie rzeczywistym od terminalu do dostawy.</p>
-                    <span class="svc-tag">Live 24/7</span>
+                    <h3 data-i18n="svc.6.title">GPS Tracking</h3>
+                    <p data-i18n="svc.6.desc">Sledzenie Twojego kontenera w czasie rzeczywistym od terminalu do dostawy.</p>
+                    <span class="svc-tag" data-i18n="svc.6.tag">Live 24/7</span>
                 </div>
             </div>
         </div>
@@ -418,8 +422,8 @@
         <div class="img-divider-overlay"></div>
         <div class="container img-divider-content">
             <div class="divider-stat">
-                <span class="ds-number">24h</span>
-                <span class="ds-label">od zlecenia do podstawienia ciezarowki na terminal</span>
+                <span class="ds-number" data-i18n="div.crane.number">24h</span>
+                <span class="ds-label" data-i18n="div.crane.label">od zlecenia do podstawienia ciezarowki na terminal</span>
             </div>
         </div>
     </section>
@@ -428,9 +432,9 @@
     <section class="section" id="process">
         <div class="container">
             <div class="section-head">
-                <span class="section-tag">Proces</span>
-                <h2 class="section-title">Jak dzialamy</h2>
-                <p class="section-desc">4 proste kroki od kontenera na terminalu do towaru w Twoim magazynie</p>
+                <span class="section-tag" data-i18n="proc.tag">Proces</span>
+                <h2 class="section-title" data-i18n="proc.title">Jak dzialamy</h2>
+                <p class="section-desc" data-i18n="proc.desc">4 proste kroki od kontenera na terminalu do towaru w Twoim magazynie</p>
             </div>
 
             <div class="process-grid">
@@ -439,8 +443,8 @@
                     <div class="step-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                     </div>
-                    <h3>Zlecenie</h3>
-                    <p>Podaj numer kontenera i terminal. Wystawiamy wycene w ciagu godziny.</p>
+                    <h3 data-i18n="proc.1.title">Zlecenie</h3>
+                    <p data-i18n="proc.1.desc">Podaj numer kontenera i terminal. Wystawiamy wycene w ciagu godziny.</p>
                 </div>
 
                 <div class="step-card">
@@ -448,8 +452,8 @@
                     <div class="step-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10m16-1V8h-4l3 8z"/></svg>
                     </div>
-                    <h3>Podstawienie</h3>
-                    <p>Podstawiamy ciezarowke na terminal. Suwnica laduje kontener na naczepy.</p>
+                    <h3 data-i18n="proc.2.title">Podstawienie</h3>
+                    <p data-i18n="proc.2.desc">Podstawiamy ciezarowke na terminal. Suwnica laduje kontener na naczepy.</p>
                 </div>
 
                 <div class="step-card">
@@ -457,8 +461,8 @@
                     <div class="step-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-                    <h3>Transport</h3>
-                    <p>Kontener jedzie do Ciebie. GPS tracking na zywo. Informujemy o ETA.</p>
+                    <h3 data-i18n="proc.3.title">Transport</h3>
+                    <p data-i18n="proc.3.desc">Kontener jedzie do Ciebie. GPS tracking na zywo. Informujemy o ETA.</p>
                 </div>
 
                 <div class="step-card">
@@ -466,8 +470,8 @@
                     <div class="step-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     </div>
-                    <h3>Dostawa</h3>
-                    <p>Dostarczamy kontener pod Twoj adres. Rozladowujemy na zyczenie.</p>
+                    <h3 data-i18n="proc.4.title">Dostawa</h3>
+                    <p data-i18n="proc.4.desc">Dostarczamy kontener pod Twoj adres. Rozladowujemy na zyczenie.</p>
                 </div>
             </div>
         </div>
@@ -480,22 +484,22 @@
             <div class="stats-banner">
                 <div class="sb-item">
                     <span class="sb-val" data-target="500">0</span><span class="sb-plus">+</span>
-                    <span class="sb-label">kontenerow / msc</span>
+                    <span class="sb-label" data-i18n="stat.1.label">kontenerow / msc</span>
                 </div>
                 <div class="sb-divider"></div>
                 <div class="sb-item">
                     <span class="sb-val" data-target="3">0</span>
-                    <span class="sb-label">terminale</span>
+                    <span class="sb-label" data-i18n="stat.2.label">terminale</span>
                 </div>
                 <div class="sb-divider"></div>
                 <div class="sb-item">
                     <span class="sb-val" data-target="98">0</span><span class="sb-plus">%</span>
-                    <span class="sb-label">terminowosc</span>
+                    <span class="sb-label" data-i18n="stat.3.label">terminowosc</span>
                 </div>
                 <div class="sb-divider"></div>
                 <div class="sb-item">
                     <span class="sb-val" data-target="24">0</span><span class="sb-plus">h</span>
-                    <span class="sb-label">czas reakcji</span>
+                    <span class="sb-label" data-i18n="stat.4.label">czas reakcji</span>
                 </div>
             </div>
         </div>
@@ -505,30 +509,30 @@
     <section class="section section-gray">
         <div class="container">
             <div class="section-head">
-                <span class="section-tag">Dlaczego my</span>
-                <h2 class="section-title">Twoj kontener, nasza odpowiedzialnosc</h2>
+                <span class="section-tag" data-i18n="why.tag">Dlaczego my</span>
+                <h2 class="section-title" data-i18n="why.title">Twoj kontener, nasza odpowiedzialnosc</h2>
             </div>
 
             <div class="why-grid">
                 <div class="why-card">
                     <div class="why-img why-img-1"></div>
                     <div class="why-content">
-                        <h3>Bezposredni dostep do terminali</h3>
-                        <p>Stala obecnosc w Malaszewiczach, Gdansku i Duisburgu. Znamy kazdy terminal od podszewki - szybka obsluga bez przestojow.</p>
+                        <h3 data-i18n="why.1.title">Bezposredni dostep do terminali</h3>
+                        <p data-i18n="why.1.desc">Stala obecnosc w Malaszewiczach, Gdansku i Duisburgu. Znamy kazdy terminal od podszewki - szybka obsluga bez przestojow.</p>
                     </div>
                 </div>
                 <div class="why-card why-card-reverse">
                     <div class="why-img why-img-2"></div>
                     <div class="why-content">
-                        <h3>Wlasna flota ciezarowek</h3>
-                        <p>Nie zlecamy dalej - jedzdzimy wlasnymi pojazdami. Pelna kontrola nad transportem, terminowoscia i bezpieczenstwem Twojego towaru.</p>
+                        <h3 data-i18n="why.2.title">Wlasna flota ciezarowek</h3>
+                        <p data-i18n="why.2.desc">Nie zlecamy dalej - jedzdzimy wlasnymi pojazdami. Pelna kontrola nad transportem, terminowoscia i bezpieczenstwem Twojego towaru.</p>
                     </div>
                 </div>
                 <div class="why-card">
                     <div class="why-img why-img-3"></div>
                     <div class="why-content">
-                        <h3>Doswiadczenie z towarem z Chin</h3>
-                        <p>Specjalizujemy sie w kontenerach z Chin. Znamy specyfike towaru, odpraw celnych i wymagan transportowych na tej trasie.</p>
+                        <h3 data-i18n="why.3.title">Doswiadczenie z towarem z Chin</h3>
+                        <p data-i18n="why.3.desc">Specjalizujemy sie w kontenerach z Chin. Znamy specyfike towaru, odpraw celnych i wymagan transportowych na tej trasie.</p>
                     </div>
                 </div>
             </div>
@@ -539,9 +543,9 @@
     <section class="img-divider divider-cta">
         <div class="img-divider-overlay overlay-dark"></div>
         <div class="container img-divider-content">
-            <h2>Kontener czeka na terminalu?<br>Odbierzemy go jutro.</h2>
-            <p class="cta-sub">Zadzwon lub wyslij zapytanie - wycena w ciagu godziny.</p>
-            <a href="#contact" class="btn btn-primary">Skontaktuj sie</a>
+            <h2 data-i18n="cta.title">Kontener czeka na terminalu?<br>Odbierzemy go jutro.</h2>
+            <p class="cta-sub" data-i18n="cta.sub">Zadzwon lub wyslij zapytanie - wycena w ciagu godziny.</p>
+            <a href="#contact" class="btn btn-primary" data-i18n="cta.btn">Skontaktuj sie</a>
         </div>
     </section>
 
@@ -549,8 +553,8 @@
     <section class="section" id="contact">
         <div class="container">
             <div class="section-head">
-                <span class="section-tag">Kontakt</span>
-                <h2 class="section-title">Porozmawiajmy<br>o Twoim kontenerze</h2>
+                <span class="section-tag" data-i18n="contact.tag">Kontakt</span>
+                <h2 class="section-title" data-i18n="contact.title">Porozmawiajmy<br>o Twoim kontenerze</h2>
             </div>
 
             <div class="contact-layout">
@@ -560,7 +564,7 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
                         <div>
-                            <strong>Biuro</strong>
+                            <strong data-i18n="contact.office">Biuro</strong>
                             <p>ul. Kolejowa 15, 00-001 Warszawa</p>
                         </div>
                     </div>
@@ -569,7 +573,7 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                         </div>
                         <div>
-                            <strong>Telefon</strong>
+                            <strong data-i18n="contact.phone">Telefon</strong>
                             <p>+48 123 456 789</p>
                         </div>
                     </div>
@@ -593,45 +597,45 @@
                     </div>
 
                     <div class="ci-hours">
-                        <strong>Godziny pracy</strong>
-                        <p>Pon-Pt: 7:00 - 18:00</p>
-                        <p>Sob: 8:00 - 14:00</p>
-                        <p>Ndz: Zamkniete</p>
+                        <strong data-i18n="contact.hours.title">Godziny pracy</strong>
+                        <p data-i18n="contact.hours.1">Pon-Pt: 7:00 - 18:00</p>
+                        <p data-i18n="contact.hours.2">Sob: 8:00 - 14:00</p>
+                        <p data-i18n="contact.hours.3">Ndz: Zamkniete</p>
                     </div>
                 </div>
 
                 <form class="contact-form" id="contactForm">
                     <div class="form-2col">
-                        <div class="field"><input type="text" name="name" placeholder="Imie i nazwisko" required></div>
-                        <div class="field"><input type="text" name="company" placeholder="Firma"></div>
+                        <div class="field"><input type="text" name="name" data-i18n-ph="form.name" placeholder="Imie i nazwisko" required></div>
+                        <div class="field"><input type="text" name="company" data-i18n-ph="form.company" placeholder="Firma"></div>
                     </div>
                     <div class="form-2col">
-                        <div class="field"><input type="email" name="email" placeholder="Email" required></div>
-                        <div class="field"><input type="tel" name="phone" placeholder="Telefon"></div>
+                        <div class="field"><input type="email" name="email" data-i18n-ph="form.email" placeholder="Email" required></div>
+                        <div class="field"><input type="tel" name="phone" data-i18n-ph="form.phone" placeholder="Telefon"></div>
                     </div>
                     <div class="form-2col">
                         <div class="field">
                             <select name="terminal">
-                                <option value="">Terminal odbioru...</option>
+                                <option value="" data-i18n="form.terminal">Terminal odbioru...</option>
                                 <option value="malaszewicze">Malaszewicze</option>
                                 <option value="gdansk">Gdansk DCT / BCT</option>
                                 <option value="duisburg">Duisburg</option>
-                                <option value="other">Inny terminal</option>
+                                <option value="other" data-i18n="form.terminal.other">Inny terminal</option>
                             </select>
                         </div>
                         <div class="field">
                             <select name="container">
-                                <option value="">Typ kontenera...</option>
+                                <option value="" data-i18n="form.container">Typ kontenera...</option>
                                 <option value="20">Kontener 20'</option>
                                 <option value="40">Kontener 40'</option>
                                 <option value="40hc">Kontener 40' HC</option>
                             </select>
                         </div>
                     </div>
-                    <div class="field"><input type="text" name="container_nr" placeholder="Numer kontenera (opcjonalnie)"></div>
-                    <div class="field"><input type="text" name="destination" placeholder="Adres dostawy"></div>
-                    <div class="field"><textarea name="message" rows="3" placeholder="Dodatkowe informacje..."></textarea></div>
-                    <button type="submit" class="btn btn-primary btn-full">Wyslij zapytanie</button>
+                    <div class="field"><input type="text" name="container_nr" data-i18n-ph="form.container_nr" placeholder="Numer kontenera (opcjonalnie)"></div>
+                    <div class="field"><input type="text" name="destination" data-i18n-ph="form.destination" placeholder="Adres dostawy"></div>
+                    <div class="field"><textarea name="message" rows="3" data-i18n-ph="form.message" placeholder="Dodatkowe informacje..."></textarea></div>
+                    <button type="submit" class="btn btn-primary btn-full" data-i18n="form.submit">Wyslij zapytanie</button>
                 </form>
             </div>
         </div>
@@ -646,24 +650,24 @@
                         <span class="logo-mark">K<span class="logo-amp">&amp;</span>K</span>
                         <span class="logo-sub">Auto Sales</span>
                     </a>
-                    <p>Profesjonalny transport kontenerow z terminalow kolejowych i portowych. Malaszewicze, Gdansk, Duisburg.</p>
+                    <p data-i18n="footer.desc">Profesjonalny transport kontenerow z terminalow kolejowych i portowych. Malaszewicze, Gdansk, Duisburg.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Terminale</h4>
+                    <h4 data-i18n="footer.terminals">Terminale</h4>
                     <a href="#terminals">Malaszewicze</a>
                     <a href="#terminals">Gdansk DCT</a>
                     <a href="#terminals">Duisburg</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Uslugi</h4>
-                    <a href="#services">Odbiory z terminali</a>
-                    <a href="#services">Transport drogowy</a>
-                    <a href="#services">Odprawy celne</a>
-                    <a href="#services">Magazynowanie</a>
+                    <h4 data-i18n="footer.services">Uslugi</h4>
+                    <a href="#services" data-i18n="footer.svc.1">Odbiory z terminali</a>
+                    <a href="#services" data-i18n="footer.svc.2">Transport drogowy</a>
+                    <a href="#services" data-i18n="footer.svc.3">Odprawy celne</a>
+                    <a href="#services" data-i18n="footer.svc.4">Magazynowanie</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 K&K Auto Sales. Wszystkie prawa zastrzezone.</p>
+                <p data-i18n="footer.copy">&copy; 2024 K&K Auto Sales. Wszystkie prawa zastrzezone.</p>
             </div>
         </div>
     </footer>
