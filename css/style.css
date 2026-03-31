@@ -104,320 +104,338 @@ button.btn { appearance: none; -webkit-appearance: none; }
 }
 .hero-bg {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, #6ba3c7 0%, #8a8a80 50%, #7a7a74 100%);
+    background: #1a1c20;
 }
 .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(10,22,40,.82) 0%, rgba(15,43,70,.6) 35%, rgba(15,43,70,.35) 100%);
+    background: linear-gradient(160deg, rgba(10,14,20,.92) 0%, rgba(15,25,40,.7) 40%, rgba(12,18,28,.5) 100%);
+    z-index: 1;
 }
 
 /* ===== HERO ANIMATED SCENE ===== */
 .hero-scene {
     position: absolute; inset: 0; overflow: hidden;
-    perspective: 800px;
 }
 
-/* Sky gradient */
+/* Overcast sky */
 .hs-sky {
-    position: absolute; top: 0; left: 0; right: 0; height: 40%;
-    background: linear-gradient(180deg, #6ba3c7 0%, #8cbdd8 40%, #a8cfe0 70%, #c8dfe8 100%);
+    position: absolute; top: 0; left: 0; right: 0; height: 32%;
+    background: linear-gradient(180deg, #2a3040 0%, #3a4050 50%, #4a5060 100%);
     overflow: hidden;
 }
-.hs-cloud {
-    position: absolute; background: rgba(255,255,255,.7);
-    border-radius: 40px; height: 20px;
-}
-.hs-cloud::before, .hs-cloud::after {
-    content: ''; position: absolute; background: rgba(255,255,255,.7); border-radius: 50%;
-}
-.hs-cloud::before { width: 30px; height: 30px; top: -16px; left: 16px; }
-.hs-cloud::after { width: 22px; height: 22px; top: -10px; right: 12px; }
-.hs-cloud-1 { width: 80px; top: 30px; left: -100px; animation: hsCloudMove 30s linear infinite; }
-.hs-cloud-2 { width: 60px; top: 60px; left: -80px; animation: hsCloudMove 38s linear infinite 10s; opacity: .5; }
-.hs-cloud-3 { width: 70px; top: 20px; left: -90px; animation: hsCloudMove 25s linear infinite 18s; opacity: .6; }
-@keyframes hsCloudMove {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(100vw + 200px)); }
-}
+.hs-cloud, .hs-cloud::before, .hs-cloud::after { display: none; }
 
-/* Trees background */
+/* Horizon haze */
 .hs-trees {
-    position: absolute; top: 30%; left: 0; right: 0; height: 60px;
-    display: flex; gap: 0; z-index: 1;
+    position: absolute; top: 27%; left: 0; right: 0; height: 40px;
+    display: block;
+    background: linear-gradient(180deg, rgba(40,50,55,.0) 0%, rgba(30,38,42,.6) 40%, rgba(24,30,34,.9) 100%);
+    z-index: 1;
 }
-.hs-tree {
-    flex: 1; height: 100%;
-    background:
-        radial-gradient(ellipse 26px 28px at 50% 30%, #3a7a3a 0%, #2a6a2a 60%, transparent 61%),
-        radial-gradient(ellipse 20px 22px at 35% 40%, #4a8a3a 0%, #3a7a2a 60%, transparent 61%),
-        radial-gradient(ellipse 22px 24px at 65% 38%, #3a8030 0%, #2a7020 60%, transparent 61%),
-        linear-gradient(180deg, transparent 58%, #5a7a4a 58%, #5a7a4a 100%);
-}
+.hs-tree { display: none; }
 
-/* Yard surface */
+/* Yard surface — dark concrete */
 .hs-yard {
-    position: absolute; top: 35%; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(180deg, #8a8a80 0%, #929288 20%, #8a8a80 100%);
+    position: absolute; top: 30%; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, #2e3234 0%, #333638 30%, #2e3234 100%);
 }
 .hs-yard::before {
     content: ''; position: absolute; inset: 0;
-    background: repeating-linear-gradient(90deg, transparent, transparent 120px, rgba(0,0,0,.03) 120px, rgba(0,0,0,.03) 122px);
+    background:
+        repeating-linear-gradient(90deg, transparent, transparent 200px, rgba(255,255,255,.015) 200px, rgba(255,255,255,.015) 202px),
+        repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(255,255,255,.008) 100px, rgba(255,255,255,.008) 102px);
+}
+/* Wet ground reflection */
+.hs-yard::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 30%;
+    background: linear-gradient(180deg, rgba(60,80,100,.08) 0%, transparent 100%);
 }
 
-/* Rail tracks - horizontal lines with perspective feel */
+/* Rail tracks — steel, industrial */
 .hs-track {
-    position: absolute; left: 0; right: 0; height: 14px;
+    position: absolute; left: 0; right: 0; height: 16px;
     background:
         linear-gradient(180deg,
-            transparent 0px, transparent 2px,
-            #aaa 2px, #aaa 4px,
-            transparent 4px, transparent 10px,
-            #aaa 10px, #aaa 12px,
-            transparent 12px
+            transparent 0px, transparent 3px,
+            rgba(160,160,155,.5) 3px, rgba(160,160,155,.5) 5px,
+            transparent 5px, transparent 11px,
+            rgba(160,160,155,.5) 11px, rgba(160,160,155,.5) 13px,
+            transparent 13px
         );
     z-index: 2;
 }
 .hs-track::before {
     content: ''; position: absolute; inset: 0;
     background: repeating-linear-gradient(90deg,
-        rgba(120,100,70,.4) 0, rgba(120,100,70,.4) 6px,
-        transparent 6px, transparent 18px
+        rgba(80,70,55,.35) 0, rgba(80,70,55,.35) 8px,
+        transparent 8px, transparent 22px
     );
 }
-.hs-track-1 { top: 38%; }
-.hs-track-2 { top: 45%; }
-.hs-track-3 { top: 52%; }
-.hs-track-4 { top: 59%; }
+/* Gravel between tracks */
+.hs-track::after {
+    content: ''; position: absolute; top: -4px; left: 0; right: 0; bottom: -4px;
+    background: rgba(60,55,48,.15);
+    z-index: -1;
+}
+.hs-track-1 { top: 34%; }
+.hs-track-2 { top: 42%; }
+.hs-track-3 { top: 50%; }
+.hs-track-4 { top: 58%; }
 .hs-track-5 { top: 66%; }
 
-/* Train wagons on tracks */
+/* Train wagons — dark, heavy */
 .hs-train {
-    position: absolute; left: 0; display: flex; gap: 4px; z-index: 3;
+    position: absolute; left: 0; display: flex; gap: 3px; z-index: 3;
 }
-.hs-train-1 { top: 36%; left: 5%; }
-.hs-train-2 { top: 43%; left: 12%; }
-.hs-train-3 { top: 57%; left: 2%; }
+.hs-train-1 { top: 31.5%; left: 3%; }
+.hs-train-2 { top: 39.5%; left: 8%; }
+.hs-train-3 { top: 55.5%; left: 1%; }
 .hs-wagon {
-    width: 70px; height: 10px; background: #555; border-radius: 1px;
-    position: relative;
+    width: 74px; height: 10px; background: #3a3a38;
+    border-radius: 1px; position: relative;
+    box-shadow: 0 1px 2px rgba(0,0,0,.4);
 }
+.hs-wagon::before, .hs-wagon::after {
+    content: ''; position: absolute; bottom: -3px; width: 6px; height: 6px;
+    background: #222; border-radius: 50%;
+}
+.hs-wagon::before { left: 8px; }
+.hs-wagon::after { right: 8px; }
 .hs-wc {
-    position: absolute; top: -28px; left: 2px; right: 2px; height: 28px;
-    border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    position: absolute; top: -30px; left: 1px; right: 1px; height: 30px;
+    border-radius: 1px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.05);
 }
 .hs-wc::after {
-    content: ''; position: absolute; top: 50%; left: 10%; right: 10%;
-    height: 1px; background: rgba(255,255,255,.2);
+    content: ''; position: absolute; top: 50%; left: 8%; right: 8%;
+    height: 1px; background: rgba(255,255,255,.08);
+}
+.hs-wc::before {
+    content: ''; position: absolute; left: 4px; top: 4px; bottom: 4px; width: 1px;
+    background: rgba(255,255,255,.06);
 }
 
-/* Container stack zone (left side) */
+/* Container stacks — dense, industrial */
 .hs-stack-zone {
-    position: absolute; top: 36%; left: 60%; z-index: 4;
+    position: absolute; top: 32%; left: 62%; z-index: 4;
 }
 .hs-row {
-    display: flex; gap: 4px; margin-bottom: 4px;
+    display: flex; gap: 3px; margin-bottom: 2px;
 }
 .hs-row span {
-    display: block; width: 44px; height: 22px; border-radius: 2px;
-    box-shadow: 0 2px 3px rgba(0,0,0,.25);
+    display: block; width: 48px; height: 24px; border-radius: 1px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.04);
     position: relative;
 }
 .hs-row span::after {
-    content: ''; position: absolute; top: 50%; left: 10%; right: 10%;
-    height: 1px; background: rgba(255,255,255,.18);
+    content: ''; position: absolute; top: 50%; left: 8%; right: 8%;
+    height: 1px; background: rgba(255,255,255,.06);
 }
-.hs-row-2 { margin-left: 8px; }
-.hs-row-3 { margin-left: 16px; }
-.hs-row-4 { margin-left: 24px; }
+.hs-row-2 { margin-left: 6px; }
+.hs-row-3 { margin-left: 12px; }
+.hs-row-4 { margin-left: 18px; }
 
-/* Gantry crane - large, spanning across tracks */
+/* Gantry crane — steel gray, industrial */
 .hs-gantry {
-    position: absolute; top: 28%; left: 30%; z-index: 5;
+    position: absolute; top: 22%; left: 28%; z-index: 5;
 }
 .hs-gantry-leg {
-    position: absolute; top: 0; width: 12px; height: 280px;
-    background: linear-gradient(90deg, #b0b0a8, #c8c8c0, #b0b0a8);
-    border-radius: 2px;
+    position: absolute; top: 0; width: 14px; height: 320px;
+    background: linear-gradient(90deg, #6a6a68, #7a7a78, #6a6a68);
+    border-radius: 1px;
 }
 .hs-gantry-leg::before {
     content: ''; position: absolute; inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(0,0,0,.06) 18px, rgba(0,0,0,.06) 20px);
+    background: repeating-linear-gradient(0deg, transparent, transparent 22px, rgba(0,0,0,.08) 22px, rgba(0,0,0,.08) 24px);
 }
-/* Diagonal bracing on legs */
 .hs-gantry-leg::after {
-    content: ''; position: absolute; top: 20px; left: 2px; width: 8px; height: 100%;
-    background: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(0,0,0,.04) 14px, rgba(0,0,0,.04) 16px);
+    content: ''; position: absolute; top: 10px; left: 1px; width: 12px; height: 100%;
+    background: repeating-linear-gradient(
+        45deg, transparent, transparent 16px,
+        rgba(0,0,0,.05) 16px, rgba(0,0,0,.05) 18px
+    );
 }
 .hs-gl-l { left: 0; }
-.hs-gl-r { left: 340px; }
+.hs-gl-r { left: 380px; }
 .hs-gantry-beam {
-    position: absolute; top: -10px; left: -30px; width: 420px; height: 18px;
-    background: linear-gradient(180deg, #c0c0b8, #b0b0a8);
-    border-radius: 3px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    position: absolute; top: -12px; left: -40px; width: 480px; height: 20px;
+    background: linear-gradient(180deg, #78787a, #6a6a6c);
+    border-radius: 2px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.3);
 }
-/* Truss structure on beam */
+/* Truss structure */
 .hs-gantry-beam::before {
-    content: ''; position: absolute; top: -20px; left: 20px; right: 20px; height: 20px;
+    content: ''; position: absolute; top: -28px; left: 30px; right: 30px; height: 28px;
     background:
-        repeating-linear-gradient(60deg, transparent, transparent 20px, rgba(180,180,170,.6) 20px, rgba(180,180,170,.6) 22px),
-        repeating-linear-gradient(-60deg, transparent, transparent 20px, rgba(180,180,170,.6) 20px, rgba(180,180,170,.6) 22px);
+        repeating-linear-gradient(55deg, transparent, transparent 24px, rgba(100,100,98,.5) 24px, rgba(100,100,98,.5) 26px),
+        repeating-linear-gradient(-55deg, transparent, transparent 24px, rgba(100,100,98,.5) 24px, rgba(100,100,98,.5) 26px);
 }
 .hs-gantry-beam::after {
-    content: ''; position: absolute; top: -22px; left: 10px; right: 10px; height: 4px;
-    background: #c0c0b8; border-radius: 2px;
+    content: ''; position: absolute; top: -30px; left: 20px; right: 20px; height: 4px;
+    background: #78787a; border-radius: 2px;
 }
-/* Trolley moving along beam */
+
+/* Trolley */
 .hs-gantry-trolley {
-    position: absolute; top: 10px; left: 20px;
+    position: absolute; top: 12px; left: 20px;
     animation: hsGTrolley 14s ease-in-out infinite;
 }
 @keyframes hsGTrolley {
     0%, 8% { left: 20px; }
-    35%, 48% { left: 260px; }
+    35%, 48% { left: 300px; }
     82%, 100% { left: 20px; }
 }
 .hs-g-cable {
-    position: absolute; top: 0; left: 10px; width: 2px; height: 100px;
-    background: rgba(0,0,0,.3);
+    position: absolute; top: 0; left: 10px; width: 2px; height: 120px;
+    background: rgba(200,200,200,.35);
     animation: hsGCable 14s ease-in-out infinite;
 }
 @keyframes hsGCable {
     0%, 8% { height: 40px; }
-    18% { height: 160px; }
-    28%, 35% { height: 160px; }
+    18% { height: 190px; }
+    28%, 35% { height: 190px; }
     45% { height: 40px; }
-    62% { height: 160px; }
-    72%, 82% { height: 160px; }
+    62% { height: 190px; }
+    72%, 82% { height: 190px; }
     100% { height: 40px; }
 }
 .hs-g-spreader {
-    position: absolute; top: 100px; left: -2px; width: 28px; height: 5px;
-    background: #f0c040; border-radius: 1px;
+    position: absolute; top: 120px; left: -3px; width: 30px; height: 5px;
+    background: #e0b030; border-radius: 1px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
     animation: hsGSpreader 14s ease-in-out infinite;
 }
 @keyframes hsGSpreader {
     0%, 8% { top: 40px; }
-    18% { top: 160px; }
-    28%, 35% { top: 160px; }
+    18% { top: 190px; }
+    28%, 35% { top: 190px; }
     45% { top: 40px; }
-    62% { top: 160px; }
-    72%, 82% { top: 160px; }
+    62% { top: 190px; }
+    72%, 82% { top: 190px; }
     100% { top: 40px; }
 }
 .hs-g-container {
-    position: absolute; top: 105px; left: 0; width: 24px; height: 16px;
-    background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+    position: absolute; top: 125px; left: -1px; width: 26px; height: 18px;
+    background: linear-gradient(135deg, #b0432e, #8a3020);
     border-radius: 1px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.3);
+    box-shadow: 0 2px 6px rgba(0,0,0,.5);
     animation: hsGLift 14s ease-in-out infinite;
 }
 .hs-g-container::after {
     content: ''; position: absolute; top: 50%; left: 10%; right: 10%;
-    height: 1px; background: rgba(255,255,255,.25);
+    height: 1px; background: rgba(255,255,255,.1);
 }
 @keyframes hsGLift {
     0%, 8% { top: 45px; opacity: 1; }
-    18% { top: 165px; opacity: 1; }
-    28%, 35% { top: 165px; opacity: 1; }
+    18% { top: 195px; opacity: 1; }
+    28%, 35% { top: 195px; opacity: 1; }
     45% { top: 45px; opacity: 1; }
-    62% { top: 165px; opacity: 1; }
+    62% { top: 195px; opacity: 1; }
     76% { opacity: 1; }
     82%, 100% { top: 45px; opacity: 0; }
 }
 .hs-g-light {
-    position: absolute; top: -16px; left: 170px; width: 10px; height: 10px;
-    background: #f5a020; border-radius: 50%;
-    box-shadow: 0 0 10px rgba(245,160,32,.5);
+    position: absolute; top: -18px; left: 190px; width: 8px; height: 8px;
+    background: #e89020; border-radius: 50%;
+    box-shadow: 0 0 8px rgba(232,144,32,.6);
     animation: warningBlink 1.2s ease-in-out infinite;
 }
 
-/* Second gantry - background, smaller */
+/* Second gantry - distance */
 .hs-gantry-2 {
-    top: 32%; left: 8%; z-index: 1;
-    transform: scale(.55);
-    opacity: .3;
+    top: 28%; left: 5%; z-index: 1;
+    transform: scale(.5);
+    opacity: .2;
     transform-origin: bottom left;
 }
 
-/* Road at bottom */
+/* Road — dark asphalt */
 .hs-road {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 18%;
-    background: #4a4a48;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 16%;
+    background: linear-gradient(180deg, #282a2c, #222426);
     z-index: 6;
+    border-top: 2px solid #3a3c3e;
 }
 .hs-road::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: #6a6a68;
+    content: ''; position: absolute; top: 2px; left: 0; right: 0; height: 1px;
+    background: rgba(255,255,255,.03);
 }
 .hs-road-line {
     position: absolute; top: 50%; left: 0; right: 0; height: 3px;
-    background: repeating-linear-gradient(90deg, #e8c840 0, #e8c840 40px, transparent 40px, transparent 80px);
+    background: repeating-linear-gradient(90deg, rgba(220,190,60,.6) 0, rgba(220,190,60,.6) 36px, transparent 36px, transparent 72px);
     transform: translateY(-50%);
 }
 
-/* Trucks - driving right to left and left to right */
+/* Trucks — dark, realistic */
 .hs-truck {
-    position: absolute; z-index: 7; bottom: 0; height: 18%;
+    position: absolute; z-index: 7; bottom: 0; height: 16%;
 }
 .hs-t-cab {
-    position: absolute; bottom: 30%; right: 0; width: 30px; height: 28px;
-    background: #e8e8e0; border-radius: 3px 5px 2px 2px;
-    border: 1px solid rgba(0,0,0,.1);
+    position: absolute; bottom: 24%; right: 0; width: 28px; height: 26px;
+    background: linear-gradient(180deg, #d0d0cc, #b8b8b4);
+    border-radius: 2px 4px 1px 1px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
 }
 .hs-t-cab::before {
-    content: ''; position: absolute; top: 3px; right: 3px; width: 12px; height: 8px;
-    background: rgba(100,180,220,.4); border-radius: 1px 3px 1px 1px;
+    content: ''; position: absolute; top: 2px; right: 2px; width: 11px; height: 7px;
+    background: rgba(80,120,150,.5); border-radius: 1px 2px 1px 1px;
 }
 .hs-t-cab::after {
-    content: ''; position: absolute; bottom: 0; left: 3px; right: 3px; height: 4px;
-    background: #333; border-radius: 0 0 2px 2px;
+    content: ''; position: absolute; bottom: -3px; left: 4px; width: 5px; height: 5px;
+    background: #1a1a1a; border-radius: 50%;
 }
 .hs-t-trailer {
-    position: absolute; bottom: 34%; right: 32px; width: 100px; height: 6px;
-    background: #666; border-radius: 1px;
+    position: absolute; bottom: 28%; right: 30px; width: 108px; height: 5px;
+    background: #444; border-radius: 1px;
+}
+.hs-t-trailer::before {
+    content: ''; position: absolute; bottom: -3px; left: 6px; width: 5px; height: 5px;
+    background: #1a1a1a; border-radius: 50%;
+}
+.hs-t-trailer::after {
+    content: ''; position: absolute; bottom: -3px; right: 6px; width: 5px; height: 5px;
+    background: #1a1a1a; border-radius: 50%;
 }
 .hs-t-cont {
-    position: absolute; bottom: 40%; right: 34px; width: 96px; height: 30px;
-    border-radius: 2px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.25);
+    position: absolute; bottom: 34%; right: 32px; width: 104px; height: 28px;
+    border-radius: 1px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.05);
 }
 .hs-t-cont::after {
-    content: ''; position: absolute; top: 50%; left: 8%; right: 8%;
-    height: 1px; background: rgba(255,255,255,.2);
+    content: ''; position: absolute; top: 50%; left: 6%; right: 6%;
+    height: 1px; background: rgba(255,255,255,.08);
 }
 
-/* Truck 1 - drives right */
+/* Truck animations */
 .hs-truck-1 {
-    animation: hsTruckR 16s linear infinite;
+    animation: hsTruckR 18s linear infinite;
 }
 @keyframes hsTruckR {
     0% { left: -180px; }
     100% { left: 110%; }
 }
 
-/* Truck 2 - drives left (flipped) */
 .hs-truck-2 {
+    left: auto; right: -180px;
     transform: scaleX(-1);
-    bottom: 1%;
-    animation: hsTruckL 20s linear infinite 4s;
+    bottom: 2%;
+    animation: hsTruckL2 22s linear infinite 6s;
 }
-@keyframes hsTruckL {
-    0% { right: -180px; left: auto; }
-    100% { right: 110%; left: auto; }
-}
-.hs-truck-2 { left: auto; right: -180px; animation: hsTruckL2 20s linear infinite 4s; }
 @keyframes hsTruckL2 {
     0% { transform: scaleX(-1) translateX(0); }
     100% { transform: scaleX(-1) translateX(calc(100vw + 360px)); }
 }
 
-/* Truck 3 - drives right, slower */
 .hs-truck-3 {
     bottom: -1%;
-    animation: hsTruckR 22s linear infinite 9s;
-    opacity: .7; transform: scale(.85);
+    animation: hsTruckR 24s linear infinite 11s;
+    opacity: .5; transform: scale(.8);
+}
+
+/* Ambient light effects */
+.hs-yard::after {
+    content: ''; position: absolute; top: 0; left: 20%; width: 30%; height: 40%;
+    background: radial-gradient(ellipse at center, rgba(232,176,48,.03) 0%, transparent 70%);
 }
 
 .hero-content { position: relative; z-index: 2; padding: 140px 0 60px; max-width: 640px; }
