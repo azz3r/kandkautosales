@@ -54,13 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Animated counters ---
-    const statVals = document.querySelectorAll('.stat-val');
-    let countersAnimated = false;
-
-    function animateCounters() {
-        statVals.forEach(el => {
+    function animateCounters(elements) {
+        elements.forEach(el => {
             const target = parseInt(el.dataset.target);
-            const totalFrames = 120;
+            const totalFrames = 100;
             let frame = 0;
 
             function tick() {
@@ -81,22 +78,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Intersection Observer ---
+    let statsAnimated = false;
+    let bannerAnimated = false;
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Fade in
                 if (entry.target.classList.contains('fade-in')) {
                     entry.target.classList.add('visible');
                 }
-                if (entry.target.classList.contains('stats-row') && !countersAnimated) {
-                    countersAnimated = true;
-                    animateCounters();
+                // Stats banner counters
+                if (entry.target.classList.contains('stats-banner') && !bannerAnimated) {
+                    bannerAnimated = true;
+                    animateCounters(entry.target.querySelectorAll('.sb-val'));
                 }
             }
         });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     // Add fade-in to elements
-    ['.svc-card', '.step-card', '.stat-block', '.compare-card', '.ci-item'].forEach(sel => {
+    ['.svc-card', '.step-card', '.ci-item', '.why-card', '.terminal-badge'].forEach(sel => {
         document.querySelectorAll(sel).forEach((el, i) => {
             el.classList.add('fade-in');
             el.style.transitionDelay = `${i * 80}ms`;
@@ -104,8 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const statsRow = document.querySelector('.stats-row');
-    if (statsRow) observer.observe(statsRow);
+    // Observe stats banner
+    const statsBanner = document.querySelector('.stats-banner');
+    if (statsBanner) observer.observe(statsBanner);
 
     // --- Contact form ---
     const form = document.getElementById('contactForm');
@@ -122,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             if (!valid) { showToast('Wypelnij wymagane pola.'); return; }
-            showToast('Dziekujemy! Odpowiemy w ciagu 24h.');
+            showToast('Dziekujemy! Odpowiemy w ciagu godziny.');
             form.reset();
         });
     }
