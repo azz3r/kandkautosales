@@ -426,23 +426,23 @@
                 <form class="contact-form" id="contactForm">
                     <div class="form-2col">
                         <div class="field">
-                            <input type="text" placeholder="Imie i nazwisko" required>
+                            <input type="text" name="name" placeholder="Imie i nazwisko" required>
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Firma">
+                            <input type="text" name="company" placeholder="Firma">
                         </div>
                     </div>
                     <div class="form-2col">
                         <div class="field">
-                            <input type="email" placeholder="Email" required>
+                            <input type="email" name="email" placeholder="Email" required>
                         </div>
                         <div class="field">
-                            <input type="tel" placeholder="Telefon">
+                            <input type="tel" name="phone" placeholder="Telefon">
                         </div>
                     </div>
                     <div class="field">
-                        <select required>
-                            <option value="" disabled selected>Typ kontenera...</option>
+                        <select name="container">
+                            <option value="">Typ kontenera...</option>
                             <option value="20">Kontener 20'</option>
                             <option value="40">Kontener 40'</option>
                             <option value="40hc">Kontener 40' HC</option>
@@ -451,14 +451,14 @@
                     </div>
                     <div class="form-2col">
                         <div class="field">
-                            <input type="text" placeholder="Miasto nadania (Chiny)">
+                            <input type="text" name="city_from" placeholder="Miasto nadania (Chiny)">
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Miasto dostawy (Europa)">
+                            <input type="text" name="city_to" placeholder="Miasto dostawy (Europa)">
                         </div>
                     </div>
                     <div class="field">
-                        <textarea rows="4" placeholder="Dodatkowe informacje o towarze..." required></textarea>
+                        <textarea name="message" rows="4" placeholder="Dodatkowe informacje o towarze..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-copper btn-full">Wyslij zapytanie</button>
                 </form>

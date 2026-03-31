@@ -4,14 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Preloader ---
     const preloader = document.getElementById('preloader');
-    window.addEventListener('load', () => {
+    function hidePreloader() {
         setTimeout(() => {
             preloader.classList.add('hidden');
-        }, 1800);
-    });
-    // Fallback if load already fired
+        }, 1500);
+    }
     if (document.readyState === 'complete') {
-        setTimeout(() => preloader.classList.add('hidden'), 1800);
+        hidePreloader();
+    } else {
+        window.addEventListener('load', hidePreloader);
     }
 
     // --- Header scroll ---
@@ -149,8 +150,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Contact form ---
     const form = document.getElementById('contactForm');
     if (form) {
-        form.addEventListener('submit', e => {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
+            e.stopPropagation();
+
+            // Basic validation
+            const requiredFields = form.querySelectorAll('[required]');
+            let valid = true;
+            requiredFields.forEach(field => {
+                if (!field.value || field.value.trim() === '') {
+                    valid = false;
+                    field.style.borderColor = '#c44536';
+                    setTimeout(() => { field.style.borderColor = ''; }, 2000);
+                }
+            });
+
+            if (!valid) {
+                showToast('Wypelnij wymagane pola.');
+                return;
+            }
+
             showToast('Dziekujemy! Odpowiemy w ciagu 24h.');
             form.reset();
         });
