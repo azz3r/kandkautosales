@@ -85,10 +85,10 @@ a{text-decoration:none;color:inherit}
 
 /* ===== HEADER ===== */
 .header{
-    position:fixed;top:0;left:0;right:0;z-index:1000;
-    background:rgba(26,23,20,.85);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid transparent;
+    position:fixed;top:0;left:0;right:0;z-index:9000;
+    background:rgba(20,17,14,.92);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
     transition:all .3s;
 }
 .header.scrolled{
@@ -131,24 +131,30 @@ a{text-decoration:none;color:inherit}
 
 /* ===== BUTTONS ===== */
 .btn{
-    display:inline-flex;align-items:center;gap:8px;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
     padding:14px 32px;border-radius:var(--radius-sm);
     font-size:.95rem;font-weight:600;cursor:pointer;
     transition:all .3s;border:2px solid transparent;
-    font-family:inherit;
+    font-family:'Outfit',sans-serif;text-decoration:none;
+    line-height:1.4;letter-spacing:.02em;
 }
 .btn-copper{
     background:linear-gradient(135deg,var(--copper),var(--copper-dark));
-    color:var(--bg-dark);
+    color:var(--bg-dark) !important;border-color:var(--copper);
 }
 .btn-copper:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 24px rgba(194,149,107,.25);
+    box-shadow:0 8px 24px rgba(194,149,107,.35);
+    background:linear-gradient(135deg,var(--copper-light),var(--copper));
 }
 .btn-ghost{
-    border-color:var(--border2);color:var(--text);background:transparent;
+    border:2px solid var(--border2) !important;
+    color:var(--text) !important;background:transparent;
 }
-.btn-ghost:hover{border-color:var(--copper);color:var(--copper)}
+.btn-ghost:hover{
+    border-color:var(--copper) !important;color:var(--copper) !important;
+    background:rgba(194,149,107,.08);
+}
 .btn-full{width:100%;justify-content:center}
 button.btn{
     appearance:none;-webkit-appearance:none;
@@ -281,7 +287,8 @@ button.btn{
 /* Hero content */
 .hero-content{
     position:relative;z-index:2;
-    padding:140px 0 160px;
+    padding:140px 0 120px;
+    max-width:600px;
 }
 .hero-badge{
     display:inline-block;padding:6px 16px;
@@ -308,18 +315,25 @@ button.btn{
 }
 .route-ribbon-inner{
     max-width:900px;margin:0 auto;padding:0 24px;
-    display:flex;align-items:center;justify-content:center;
-    gap:0;position:relative;
+    display:flex;flex-direction:row;align-items:center;justify-content:center;
+    position:relative;
 }
-.route-point{display:flex;flex-direction:column;align-items:center;gap:6px;z-index:1}
+.route-point{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    z-index:1;flex-shrink:0;
+}
 .route-point span{font-size:.72rem;color:var(--text3);font-weight:500;white-space:nowrap}
 .rp-dot{
     width:10px;height:10px;border-radius:50%;
     background:var(--border2);border:2px solid var(--text3);
 }
-.rp-china{background:var(--red);border-color:var(--red);box-shadow:0 0 8px var(--red-glow)}
-.rp-europe{background:var(--copper);border-color:var(--copper);box-shadow:0 0 8px var(--copper-glow)}
-.route-line{flex:1;height:2px;background:var(--border);margin:0 -4px;margin-bottom:18px}
+.rp-china{background:var(--red);border-color:var(--red);box-shadow:0 0 8px rgba(196,69,54,.4)}
+.rp-europe{background:var(--copper);border-color:var(--copper);box-shadow:0 0 8px rgba(194,149,107,.4)}
+.route-line{
+    flex:1;height:2px;background:var(--border);
+    min-width:40px;margin:0 8px;align-self:center;
+    margin-bottom:18px;
+}
 .route-train-dot{
     position:absolute;top:18px;width:8px;height:8px;
     background:var(--copper);border-radius:50%;
@@ -693,8 +707,9 @@ button.btn{
     .hero-content{padding:120px 0 180px}
     .hero-actions{flex-direction:column;gap:12px}
 
-    .route-ribbon-inner{overflow-x:auto;justify-content:flex-start;gap:0;padding:0 16px}
-    .route-point span{font-size:.65rem}
+    .route-ribbon-inner{overflow-x:auto;justify-content:flex-start;padding:0 16px;flex-wrap:nowrap}
+    .route-point span{font-size:.6rem}
+    .route-line{min-width:20px;margin:0 4px}
 
     .services-grid{grid-template-columns:1fr}
     .stats-row{grid-template-columns:1fr 1fr}
